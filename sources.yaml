@@ -1,0 +1,29 @@
+# Source registry.
+#
+# Onboarding a new ad account is an entry here. No new DAG file, no new code.
+# The DAG factory in dags/marketing_ingestion_dag.py reads this at parse time
+# and generates one DAG per enabled account.
+
+defaults:
+  bq_project: "${GCP_PROJECT}"
+  bq_dataset: "marketing"
+  api_version: "v21.0"
+  schedule: "0 6 * * *"        # 06:00 UTC, after Meta's overnight settlement
+
+  # GA4 public sample. Swap for your own export when you have one.
+  ga4_project: "bigquery-public-data"
+  ga4_dataset: "ga4_obfuscated_sample_ecommerce"
+
+accounts:
+  - key: "sandbox_primary"
+    name: "Sandbox Ad Account"
+    ad_account_id: "act_000000000000000"
+    start_date: "2026-01-01"
+    enabled: true
+
+  - key: "sandbox_secondary"
+    name: "Second Sandbox Account"
+    ad_account_id: "act_111111111111111"
+    start_date: "2026-01-01"
+    schedule: "30 6 * * *"     # staggered to spread API quota consumption
+    enabled: false
