@@ -29,10 +29,10 @@ var CHAMBER = {
     if (!seen) {
       gate.hidden = false;
       document.body.style.overflow = 'hidden';
-      var agree = $('#disc-agree');
+      var agree = $('#gate-agree');
       if (agree) { agree.focus(); }
     }
-    $('#disc-agree').addEventListener('click', function () {
+    $('#gate-agree').addEventListener('click', function () {
       gate.hidden = true;
       document.body.style.overflow = '';
       try { sessionStorage.setItem('disclaimerAccepted', '1'); } catch (e) { /* private mode */ }
@@ -78,6 +78,24 @@ var CHAMBER = {
     });
   }
   markActiveSection();
+
+  /* ---------------- Reveal on scroll ---------------- */
+  var revealables = $$('.reveal');
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!revealables.length) { /* nothing to do */ }
+  else if (reduced || !('IntersectionObserver' in window)) {
+    revealables.forEach(function (el) { el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealables.forEach(function (el) { io.observe(el); });
+  }
 
   /* ---------------- Appointment form ---------------- */
   var form = $('#appt-form');

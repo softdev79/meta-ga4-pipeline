@@ -1,8 +1,7 @@
 # Dr. Om Prakash Gupta — Senior Advocate (chamber website)
 
 A static, single-page website for **Dr. Om Prakash Gupta, Senior Advocate**
-(Genius Senior Advocate & Associates), practising before the Hon'ble High Court
-of Judicature at Allahabad.
+(Genius Senior Advocate & Associates, **Chamber No. 1, Kanpur Nagar Court**).
 
 No build step, no framework, no server. Three files plus one photograph.
 
@@ -22,11 +21,12 @@ netlify.toml                    (repository root) hosting configuration
 
 | Section | What it does |
 |---|---|
-| Hero | Name, designation, years of practice, portrait, two calls to action |
+| Hero | Visiting card across the top of the banner, then name, designation, photograph and two calls to action |
 | About | Short biography and an "at a glance" credentials card |
 | Practice Areas | Twelve areas of law the chamber handles |
 | How It Works | Four steps from first call to representation |
 | **Appointment** | Booking form — validated, sent to the chamber on WhatsApp or email |
+| **Payment by UPI** | QR code and UPI ID, directly below the booking form |
 | Contact | Chamber address, phone, email, chamber hours |
 | Footer | Bar Council disclaimer and copyright |
 
@@ -53,6 +53,11 @@ Validation done in the browser before anything is sent:
   (the chamber is closed on Sunday — the form says so);
 - the acknowledgement checkbox must be ticked.
 
+A highlighted note under the two buttons asks anyone who sends their details by
+**email** to also inform the chamber by **phone call**, so that a message sitting
+in the inbox is not missed. The same note is repeated on the email card in the
+contact section.
+
 ### Changing the phone number or email
 
 Both live in one place — the top of `assets/js/main.js`:
@@ -74,27 +79,30 @@ The time slots are the `<option>` list under `id="f-time"` in `index.html`.
 
 ## Please confirm before publishing
 
-These are marked in the page and should be checked by Dr. Gupta himself:
-
-1. **Chamber address.** The visiting card shows the chamber in the District &
-   Sessions Court campus, but the chamber number and city are not legible in
-   the photograph. In `index.html`, the contact card contains a placeholder:
-   `[Chamber number, road and city — please confirm]`.
+1. **Chamber address.** Listed as *Chamber No. 1, Kanpur Nagar Court, District &
+   Sessions Court campus*. The visiting card also shows the chamber reached via
+   **Court Gate No. 2** — add that line if it helps clients find you, or correct
+   the wording if it is wrong.
 2. **Enrolment details.** The site says "over 47 years" and "Senior Advocate",
    both taken from the card. Nothing about enrolment year, bar council
-   registration number or university degrees has been invented — add them if
-   you want them shown.
+   registration number or degrees has been invented — add them if you want them
+   shown.
 3. **Practice areas.** Twelve common areas are listed. Remove any the chamber
    does not take, and add any that are missing.
-4. **Bar Council compliance.** Advocates in India may not solicit work or
+4. **Payment QR.** The QR was **regenerated** rather than photographed, so it is
+   sharp at any size. It encodes exactly the payload read from the card's own
+   QR: `upi://pay?pa=omprakashadv8@okhdfcbank&pn=omprakash%20adv&aid=...` — this
+   was verified by decoding both the original and the new one. Please scan it
+   once yourself before publishing, and remember that a UPI ID on a public page
+   can attract nuisance payments and impersonation; the page therefore tells
+   clients to confirm the amount by phone first and warns that the chamber never
+   asks for an OTP or PIN.
+5. **Bar Council compliance.** Advocates in India may not solicit work or
    advertise (Bar Council of India Rules, Chapter II, Part VI, Rule 36). The
    site is written as information only, carries the standard disclaimer gate on
    first visit, and makes no claim about results, success rates or client
    numbers. Please keep it that way when editing, and do not add testimonials,
    case victories or comparative claims.
-5. **UPI / payment details.** The UPI ID and QR code printed on the visiting
-   card have deliberately **not** been put on the website. Publishing payment
-   handles on a public page invites misuse. Add them only if you are sure.
 
 ## Publishing it on Netlify (free)
 
@@ -170,13 +178,26 @@ card than a `.netlify.app` address, and the card can be reprinted with it.
    added to the `Content-Security-Policy` line in `netlify.toml`, or the browser
    will block it.
 
-## Notes on the photograph
+## Notes on the images
 
-`assets/img/advocate.jpg` was cropped from the photograph of the visiting card
-and cleaned up (deskewed, denoised, contrast corrected). It is a scan of a
-small printed photo, so it is grainy at large sizes. If Dr. Gupta has the
-original photograph or a recent one, replacing this file — same name, portrait
-orientation — will improve the page considerably.
+All four images were prepared from the two photographs supplied:
+
+- **`visiting-card.jpg`** — the card was photographed at an angle, so a
+  perspective transform was applied to square it up, followed by mild contrast
+  and sharpening. It is legible at full size and links to itself, so a visitor
+  can tap to enlarge it.
+- **`advocate.png`** — the background of the court photograph was removed, and
+  the figure now stands on a designed panel that is part of the page rather than
+  part of the image. This is why the file is a PNG: it needs transparency.
+- **`advocate-portrait.jpg`** — a head-and-shoulders crop of the same photograph
+  on a soft neutral backdrop, used in the About section.
+- **`upi-qr.png`** — regenerated from the payload decoded out of the card's QR,
+  at the highest error-correction level. Verified to decode back to the identical
+  payload, including at the 186px size the page displays it at.
+
+If a higher-resolution photograph exists, replacing `advocate.png` will improve
+the hero further — the supplied one is 420px wide, which is why the figure is
+displayed at a moderate size rather than filling the banner.
 
 ## Browser support
 
