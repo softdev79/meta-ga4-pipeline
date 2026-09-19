@@ -155,6 +155,47 @@ function assert(name, cond, detail) {
   assert('still no console errors after interaction', consoleErrors.length === 0,
     consoleErrors.join(' | '));
 
+  // --- proprietor photo -------------------------------------------------
+  const photo = page.locator('#prop-photo');
+  assert('proprietor photo is on the page', await photo.count() === 1);
+  const dims = await photo.evaluate((el) => ({ w: el.naturalWidth, h: el.naturalHeight, src: el.src.slice(0, 20) }));
+  assert('proprietor photo actually decoded', dims.w > 0 && dims.h > 0, JSON.stringify(dims));
+  assert('proprietor photo is inlined, not a broken file link',
+    dims.src.startsWith('data:image/'), dims.src);
+  // Guards a real regression: the width/height attributes override
+  // aspect-ratio unless height:auto is set, which made object-fit crop the
+  // square photo into a tall portrait and clipped the subject's head.
+  const box = await photo.evaluate((el) => {
+    const r = el.getBoundingClientRect();
+    return { w: Math.round(r.width), h: Math.round(r.height) };
+  });
+  assert('proprietor photo box is square, not letterboxed',
+    box.w === box.h && box.w > 0, `${box.w} x ${box.h}`);
+
+  const alt = await photo.getAttribute('alt');
+  assert('proprietor photo has a descriptive alt', (alt || '').length > 10, alt);
+  const bio = await page.locator('#prop-bio').innerText();
+  assert('proprietor bio follows the language', /[\u0900-\u097F]/.test(bio), bio.slice(0, 40));
+
+  // --- footer language switch stays in sync with the header one ---------
+  await page.click('#lang-en-2');
+  await page.waitForTimeout(180);
+  assert('footer switch changes the language',
+    !/[\u0900-\u097F]/.test(await page.locator('h1').innerText()));
+  assert('header switch reflects the footer choice',
+    await page.getAttribute('#lang-en', 'aria-pressed') === 'true');
+  await page.click('#lang-hi-2');
+  await page.waitForTimeout(180);
+  assert('both switches agree after a footer click',
+    (await page.getAttribute('#lang-hi', 'aria-pressed')) === 'true' &&
+    (await page.getAttribute('#lang-hi-2', 'aria-pressed')) === 'true');
+
+  // --- the switch reads in both languages without translation ----------
+  const btnEn = await page.locator('#lang-en').innerText();
+  const btnHi = await page.locator('#lang-hi').innerText();
+  assert('language buttons are self-describing',
+    btnEn.trim() === 'English' && /हिंदी/.test(btnHi), `${btnEn} / ${btnHi}`);
+
   // --- screenshots (desktop EN, mobile HI) ------------------------------
   await page.click('#lang-en');
   await page.waitForTimeout(150);

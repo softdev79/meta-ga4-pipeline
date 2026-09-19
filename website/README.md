@@ -22,7 +22,28 @@ Replace these five values with Ajay Pharma's real ones, then rebuild:
 | `email` | `orders@ajaypharma.example` | shop email |
 | `drugLicence` / `gstin` | `UP/KNP/20B-00000…` | real licence and GST numbers |
 
-Opening hours, delivery districts and the year established are in the same file.
+Two more values were **guessed, not supplied** — correct them in the same file:
+
+- `established` is set to `1998` and shows on the page as "Est. 1998".
+- `proprietor.name` is deliberately **blank**. While it is empty the About
+  section reads "Ajay Pharma, Kanpur" rather than naming anyone. Fill in
+  `{"en": "...", "hi": "..."}` and the name appears above the bio.
+
+Opening hours and delivery districts are in the same file.
+
+---
+
+## Changing the proprietor photo
+
+Replace `assets/proprietor.jpg` and run `node build.js`. The build inlines it
+into the page as a data URI, so there is no separate image file to upload.
+
+- Use a **square** image, about 440×440, under 250 KB. `test/validate.js`
+  fails the build if the file is missing or too heavy to inline.
+- Keep the `width`/`height` attributes and the `height:auto` in
+  `.prop__photo`. Without `height:auto` the attributes beat `aspect-ratio`,
+  `object-fit: cover` crops the square into a tall portrait, and the top of
+  the subject's head gets cut off. `test/smoke.js` guards this.
 
 ---
 
@@ -139,9 +160,13 @@ certificate for free.
 - **One file, no framework.** `src/page.html` holds the markup, the CSS and the
   JavaScript. Nothing is fetched at runtime except the two Google fonts.
 - **Both languages are first-class.** Every string exists in `STR.en` and
-  `STR.hi` in `src/page.html`; the toggle re-renders the page and remembers the
-  choice. In Hindi the Latin brand name stays visible under the Devanagari one,
-  because that is how a chemist reads a strip.
+  `STR.hi` in `src/page.html`. There are two switches, in the header and in the
+  footer, and they stay in sync. They are labelled **English / हिंदी** in full
+  rather than "EN / HI", so each option is readable by someone who only reads
+  the other script. A first-time visitor whose phone is set to Hindi gets the
+  Hindi page automatically; after that the choice is remembered. In Hindi the
+  Latin brand name stays visible under the Devanagari one, because that is how
+  a chemist reads a strip.
 - **Light and dark.** Colours are CSS custom properties defined three times —
   for light, for `prefers-color-scheme: dark`, and for an explicit theme stamp —
   so the page follows the visitor's phone.

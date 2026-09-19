@@ -83,11 +83,14 @@ input{font:inherit}
   padding:7px 11px; border-radius:8px;
 }
 .nav a:hover{background:var(--surface-2); color:var(--ink)}
-.langtog{display:flex; border:1px solid var(--line-strong); border-radius:999px; padding:2px; background:var(--surface)}
+.langwrap{display:flex; align-items:center; gap:7px}
+.langwrap svg{width:17px; height:17px; color:var(--muted); flex:none}
+.langtog{display:flex; border:1.5px solid var(--brand); border-radius:999px; padding:2.5px; background:var(--surface)}
 .langtog button{
-  font-size:13.5px; font-weight:600; padding:5px 12px; border-radius:999px;
-  color:var(--ink-2); line-height:1.4;
+  font-size:14px; font-weight:700; padding:7px 15px; border-radius:999px;
+  color:var(--brand); line-height:1.4; white-space:nowrap;
 }
+@media (max-width:420px){ .langtog button{padding:7px 12px; font-size:13.5px} .langwrap svg{display:none} }
 .langtog button:hover{color:var(--brand)}
 .langtog button[aria-pressed="true"]{background:var(--brand); color:var(--brand-ink)}
 .btn{
@@ -304,6 +307,20 @@ dialog.sheet::backdrop{background:rgba(5,20,14,.55); backdrop-filter:blur(3px)}
 .sheet__foot .btn{width:100%}
 .sheet__hint{font-size:12.5px; color:var(--muted); margin-top:10px; text-align:center}
 
+/* ===== proprietor ===== */
+.prop{display:grid; gap:22px; grid-template-columns:1fr; align-items:start}
+@media (min-width:720px){ .prop{grid-template-columns:230px 1fr; gap:34px} }
+.prop__photo{
+  width:100%; max-width:230px; height:auto; aspect-ratio:1/1; object-fit:cover; display:block;
+  border-radius:var(--radius); border:1px solid var(--line); box-shadow:var(--shadow);
+  background:var(--surface-2);
+}
+.prop__role{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--brand)}
+.prop__name{font-family:var(--display); font-weight:700; font-size:clamp(21px,3.4vw,27px); letter-spacing:-.02em; margin-top:6px}
+.prop__bio{margin-top:14px; font-size:15.5px; color:var(--ink-2); max-width:58ch; line-height:1.65}
+.prop__sign{margin-top:18px; display:flex; flex-wrap:wrap; gap:8px}
+.prop__sign li{font-size:13px; font-weight:500; color:var(--ink-2); background:var(--surface-2); border:1px solid var(--line); padding:6px 12px; border-radius:999px}
+
 /* ===== footer ===== */
 footer{border-top:1px solid var(--line); background:var(--surface); margin-top:12px}
 .foot{display:grid; gap:20px; padding-block:30px}
@@ -311,6 +328,8 @@ footer{border-top:1px solid var(--line); background:var(--surface); margin-top:1
 .foot p{font-size:13px; color:var(--muted); line-height:1.6}
 .foot .legal{border-top:1px solid var(--line); padding-top:16px; margin-top:4px; grid-column:1/-1; display:flex; flex-wrap:wrap; gap:6px 18px; justify-content:space-between}
 .foot .legal span{font-size:12.5px; color:var(--muted)}
+.footlang{display:flex; align-items:center; gap:10px; margin-top:16px}
+.footlang span{font-size:13px; color:var(--muted)}
 .disclaim{background:var(--amber-soft); border:1px solid color-mix(in srgb,var(--amber) 30%,transparent); border-radius:var(--radius-s); padding:13px 15px; font-size:13px; color:var(--ink-2); line-height:1.55}
 .disclaim b{color:var(--amber)}
 .padbottom{height:0}
@@ -341,12 +360,16 @@ footer{border-top:1px solid var(--line); background:var(--surface); margin-top:1
       <a href="#ratelist" data-t="navList">Rate list</a>
       <a href="#companies" data-t="navCos">Companies</a>
       <a href="#services" data-t="navSvc">Services</a>
+      <a href="#proprietor" data-t="navAbout">About us</a>
       <a href="#contact" data-t="navContact">Contact</a>
     </nav>
 
-    <div class="langtog" role="group" aria-label="Language / भाषा">
-      <button type="button" id="lang-en" data-lang="en" aria-pressed="true">EN</button>
-      <button type="button" id="lang-hi" data-lang="hi" aria-pressed="false">हिं</button>
+    <div class="langwrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18z"></path></svg>
+      <div class="langtog" role="group" aria-label="Language / भाषा चुनें">
+        <button type="button" id="lang-en" data-lang="en" aria-pressed="true">English</button>
+        <button type="button" id="lang-hi" data-lang="hi" aria-pressed="false">हिंदी</button>
+      </div>
     </div>
 
     <a class="btn btn--primary btn--sm only-wide" id="hdr-call" href="#">
@@ -502,6 +525,30 @@ footer{border-top:1px solid var(--line); background:var(--surface); margin-top:1
     </ul>
   </section>
 
+  <!-- PROPRIETOR -->
+  <section class="wrap sec" id="proprietor">
+    <div class="sec__head">
+      <div>
+        <p class="eyebrow" data-t="eyeProp">Behind the counter</p>
+        <h2 data-t="propTitle">Who you are dealing with</h2>
+      </div>
+    </div>
+    <div class="prop">
+      <img class="prop__photo" id="prop-photo" src="__PROPRIETOR_PHOTO__" width="440" height="440"
+           alt="Proprietor of Ajay Pharma" decoding="async">
+      <div>
+        <p class="prop__role" id="prop-role">Proprietor</p>
+        <p class="prop__name" id="prop-name">Ajay Pharma, Kanpur</p>
+        <p class="prop__bio" id="prop-bio"></p>
+        <ul class="prop__sign">
+          <li data-t="propTag1">Licensed wholesale distributor</li>
+          <li data-t="propTag2">Cipla &amp; Intas stockist</li>
+          <li data-t="propTag3">Birhana Road, Kanpur</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="wrap sec" id="contact">
     <div class="sec__head">
@@ -549,6 +596,15 @@ footer{border-top:1px solid var(--line); background:var(--surface); margin-top:1
       <p class="num" id="foot-licence" style="color:var(--ink-2)">—</p>
       <p class="eyebrow" style="margin-top:12px" data-t="lblGst">GSTIN</p>
       <p class="num" id="foot-gst" style="color:var(--ink-2)">—</p>
+    </div>
+    <div style="grid-column:1/-1">
+      <div class="footlang">
+        <span data-t="footLangLabel">Read this site in</span>
+        <div class="langtog" role="group" aria-label="Language / भाषा चुनें">
+          <button type="button" id="lang-en-2" data-lang="en" aria-pressed="true">English</button>
+          <button type="button" id="lang-hi-2" data-lang="hi" aria-pressed="false">हिंदी</button>
+        </div>
+      </div>
     </div>
     <div class="legal">
       <span id="foot-copy">© Ajay Pharma, Kanpur</span>
@@ -603,7 +659,7 @@ footer{border-top:1px solid var(--line); background:var(--surface); margin-top:1
   var STR = {
     en: {
       brandName:"Ajay Pharma", brandSub:"Wholesale medicine distributor",
-      navList:"Rate list", navCos:"Companies", navSvc:"Services", navContact:"Contact",
+      navList:"Rate list", navCos:"Companies", navSvc:"Services", navAbout:"About us", navContact:"Contact",
       callNow:"Call now",
       heroA:"Kanpur's medicine counter for", heroB:"chemists, clinics & hospitals",
       heroLede:"Wholesale supply of the full Cipla and Intas range, plus every fast-moving brand your shop needs — from Birhana Road, delivered across Kanpur the same day.",
@@ -636,6 +692,10 @@ footer{border-top:1px solid var(--line); background:var(--surface); margin-top:1
       svc4T:"Genuine stock, full papers", svc4P:"Every consignment comes from the company depot or authorised C&F, with batch number, expiry and a GST invoice on each bill.",
       svc5T:"Expiry & breakage support", svc5P:"Near-expiry stock is taken back on the company's standard terms and credited against your next purchase.",
       svc6T:"Institutional supply", svc6P:"Rate contracts and scheduled monthly supply for nursing homes, hospitals and clinics, with consolidated monthly billing.",
+      eyeProp:"Behind the counter", propTitle:"Who you are dealing with",
+      propTag1:"Licensed wholesale distributor", propTag2:"Cipla & Intas stockist",
+      propTag3:"Birhana Road, Kanpur", propRoleFallback:"Proprietor",
+      footLangLabel:"Read this site in",
       eyeContact:"Come to the counter", contactTitle:"Visit or call us",
       lblAddress:"Address", getDirections:"Get directions", lblReach:"Reach us",
       lblPhone:"Phone", lblWa:"WhatsApp", waOrder:"Send order", lblEmail:"Email", lblAreas:"We deliver to",
@@ -651,7 +711,7 @@ footer{border-top:1px solid var(--line); background:var(--surface); margin-top:1
     },
     hi: {
       brandName:"अजय फार्मा", brandSub:"थोक दवा वितरक",
-      navList:"रेट लिस्ट", navCos:"कंपनियाँ", navSvc:"सेवाएँ", navContact:"संपर्क",
+      navList:"रेट लिस्ट", navCos:"कंपनियाँ", navSvc:"सेवाएँ", navAbout:"हमारे बारे में", navContact:"संपर्क",
       callNow:"अभी कॉल करें",
       heroA:"कानपुर का दवा काउंटर —", heroB:"केमिस्ट, क्लिनिक और अस्पतालों के लिए",
       heroLede:"सिप्ला और इंटास की पूरी रेंज, साथ में हर तेज़ चलने वाला ब्रांड — बिरहाना रोड से, कानपुर भर में उसी दिन डिलीवरी।",
@@ -684,6 +744,10 @@ footer{border-top:1px solid var(--line); background:var(--surface); margin-top:1
       svc4T:"असली स्टॉक, पूरे कागज़", svc4P:"हर खेप कंपनी डिपो या अधिकृत सी-एंड-एफ से आती है — हर बिल पर बैच नंबर, एक्सपायरी और जी.एस.टी. इनवॉइस।",
       svc5T:"एक्सपायरी और टूट-फूट सहायता", svc5P:"एक्सपायरी के नज़दीक स्टॉक कंपनी की तय शर्तों पर वापस लिया जाता है और अगली खरीद में क्रेडिट कर दिया जाता है।",
       svc6T:"संस्थागत सप्लाई", svc6P:"नर्सिंग होम, अस्पताल और क्लिनिक के लिए रेट कॉन्ट्रैक्ट और हर महीने तय सप्लाई, एक साथ मासिक बिलिंग के साथ।",
+      eyeProp:"काउंटर के पीछे", propTitle:"आप किससे काम कर रहे हैं",
+      propTag1:"लाइसेंसधारी थोक वितरक", propTag2:"सिप्ला एवं इंटास स्टॉकिस्ट",
+      propTag3:"बिरहाना रोड, कानपुर", propRoleFallback:"संचालक",
+      footLangLabel:"यह वेबसाइट पढ़ें",
       eyeContact:"काउंटर पर आइए", contactTitle:"मिलिए या कॉल कीजिए",
       lblAddress:"पता", getDirections:"रास्ता देखें", lblReach:"हमसे संपर्क",
       lblPhone:"फ़ोन", lblWa:"व्हाट्सएप", waOrder:"ऑर्डर भेजें", lblEmail:"ईमेल", lblAreas:"डिलीवरी क्षेत्र",
@@ -1016,6 +1080,21 @@ footer{border-top:1px solid var(--line); background:var(--surface); margin-top:1
       : "Birhana Road · Kanpur · Est. " + BUSINESS.established;
   }
 
+  function renderProprietor() {
+    var pr = BUSINESS.proprietor;
+    if (!pr) return;
+    var role = (pr.role && (pr.role[lang] || pr.role.en)) || t("propRoleFallback");
+    var name = (pr.name && (pr.name[lang] || pr.name.en) || "").trim();
+    var shop = (BUSINESS.name[lang] || BUSINESS.name.en) + ", " + (BUSINESS.city[lang] || BUSINESS.city.en);
+
+    $("#prop-role").textContent = role;
+    // No name supplied yet -> lead with the shop rather than inventing a person.
+    $("#prop-name").textContent = name || shop;
+    $("#prop-bio").textContent = (pr.bio && (pr.bio[lang] || pr.bio.en)) || "";
+    var photo = $("#prop-photo");
+    if (photo) photo.alt = (name ? name + " \u2014 " : "") + role + ", " + shop;
+  }
+
   function applyLang() {
     document.documentElement.lang = lang === "hi" ? "hi" : "en";
     Array.prototype.forEach.call(document.querySelectorAll("[data-t]"), function (el) {
@@ -1023,17 +1102,20 @@ footer{border-top:1px solid var(--line); background:var(--surface); margin-top:1
       if (v !== undefined) el.textContent = v;
     });
     $("#q").placeholder = t("searchPh");
-    $("#lang-en").setAttribute("aria-pressed", String(lang === "en"));
-    $("#lang-hi").setAttribute("aria-pressed", String(lang === "hi"));
+    Array.prototype.forEach.call(document.querySelectorAll(".langtog button"), function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
+    });
     buildChips();
     renderHours();
+    renderProprietor();
     renderList();
     renderCart();
   }
 
   /* ---------- events ---------- */
-  $("#lang-en").addEventListener("click", function () { setLang("en"); });
-  $("#lang-hi").addEventListener("click", function () { setLang("hi"); });
+  Array.prototype.forEach.call(document.querySelectorAll(".langtog button"), function (b) {
+    b.addEventListener("click", function () { setLang(b.dataset.lang); });
+  });
   function setLang(l) { lang = l; store.set("ap_lang", l); applyLang(); }
 
   var qTimer = null;
@@ -1084,7 +1166,13 @@ footer{border-top:1px solid var(--line); background:var(--surface); margin-top:1
 
   /* ---------- boot ---------- */
   var savedLang = store.get("ap_lang");
-  if (savedLang === "hi" || savedLang === "en") lang = savedLang;
+  if (savedLang === "hi" || savedLang === "en") {
+    lang = savedLang;
+  } else {
+    // First visit: open in Hindi for a device already set to Hindi.
+    var navLangs = (navigator.languages || [navigator.language || ""]).join(",").toLowerCase();
+    if (navLangs.indexOf("hi") === 0 || navLangs.indexOf(",hi") > -1 || /\bhi\b/.test(navLangs)) lang = "hi";
+  }
   applyLang();
 })();
 </script>

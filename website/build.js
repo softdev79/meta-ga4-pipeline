@@ -29,6 +29,21 @@ delete business._NOTE_REPLACE_THESE;
 
 const template = fs.readFileSync(path.join(ROOT, 'src/page.html'), 'utf8');
 
+// The proprietor photo is inlined as a data URI so dist/index.html stays a
+// single portable file you can drag onto any host.
+const photoPath = business.proprietor && business.proprietor.photo;
+let photoDataUri = '';
+if (photoPath) {
+  const abs = path.join(ROOT, photoPath);
+  if (!fs.existsSync(abs)) {
+    console.error(`build failed: proprietor photo not found at ${photoPath}`);
+    process.exit(1);
+  }
+  const ext = path.extname(abs).toLowerCase();
+  const mime = ext === '.png' ? 'image/png' : ext === '.webp' ? 'image/webp' : 'image/jpeg';
+  photoDataUri = `data:${mime};base64,${fs.readFileSync(abs).toString('base64')}`;
+}
+
 // JSON inlined into a <script> must not be able to close it early.
 const LS = String.fromCharCode(0x2028);
 const PS = String.fromCharCode(0x2029);
@@ -39,11 +54,12 @@ const safeJson = (value) =>
     .replace(SEPARATORS, (c) => (c === LS ? '\\u2028' : '\\u2029'));
 
 const fragment = template
+  .replace('__PROPRIETOR_PHOTO__', photoDataUri)
   .replace('__BUSINESS__', safeJson(business))
   .replace('__CATEGORIES__', safeJson(categories))
   .replace('__CATALOG__', safeJson(medicines));
 
-for (const token of ['__BUSINESS__', '__CATEGORIES__', '__CATALOG__']) {
+for (const token of ['__BUSINESS__', '__CATEGORIES__', '__CATALOG__', '__PROPRIETOR_PHOTO__']) {
   if (fragment.includes(token)) {
     console.error(`build failed: placeholder ${token} was not substituted`);
     process.exit(1);
@@ -119,6 +135,8 @@ fs.writeFileSync(path.join(ROOT, 'dist/index.html'), tidy);
 fs.writeFileSync(path.join(ROOT, 'dist/.nojekyll'), '');
 
 const kb = (f) => (fs.statSync(path.join(ROOT, f)).size / 1024).toFixed(1) + ' KB';
-console.log(`\n  built ${medicines.length} medicines, ${categories.length} categories`);
+const photoKb = photoDataUri ? Math.round((photoDataUri.length * 3) / 4 / 1024) : 0;
+console.log(`\n  built ${medicines.length} medicines, ${categories.length} categories` +
+  (photoKb ? `, proprietor photo inlined (${photoKb} KB)` : ', no proprietor photo'));
 console.log(`  dist/index.html     ${kb('dist/index.html')}   (standalone — any static host)`);
 console.log(`  dist/artifact.html  ${kb('dist/artifact.html')}   (fragment — claude.ai artifact)\n`);

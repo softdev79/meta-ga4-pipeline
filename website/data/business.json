@@ -1,5 +1,8 @@
 {
-  "name": { "en": "Ajay Pharma", "hi": "अजय फार्मा" },
+  "name": {
+    "en": "Ajay Pharma",
+    "hi": "अजय फार्मा"
+  },
   "tagline": {
     "en": "Wholesale medicine distributor",
     "hi": "थोक दवा वितरक"
@@ -9,9 +12,12 @@
     "en": "59/105, Canal Road, Birhana Road, Kanpur - 208001, Uttar Pradesh",
     "hi": "59/105, कैनाल रोड, बिरहाना रोड, कानपुर - 208001, उत्तर प्रदेश"
   },
-  "city": { "en": "Kanpur", "hi": "कानपुर" },
+  "city": {
+    "en": "Kanpur",
+    "hi": "कानपुर"
+  },
   "mapsQuery": "Ajay Pharma, 59/105 Canal Road, Birhana Road, Kanpur 208001",
-  "_NOTE_REPLACE_THESE": "The phone, WhatsApp, email, licence and GST values below are PLACEHOLDERS. Replace them with Ajay Pharma's real details before sharing the site publicly.",
+  "_NOTE_REPLACE_THESE": "The phone, WhatsApp, email, licence, GST values below are PLACEHOLDERS, and 'established' (1998) and the proprietor's name were NOT supplied - they are guesses. Replace them all with Ajay Pharma's real details before sharing the site publicly.",
   "phoneDisplay": "+91 00000 00000",
   "phoneDial": "+910000000000",
   "whatsapp": "910000000000",
@@ -19,11 +25,57 @@
   "drugLicence": "UP/KNP/20B-00000, 21B-00000",
   "gstin": "09XXXXXXXXXXXZX",
   "hours": [
-    { "days": { "en": "Monday - Saturday", "hi": "सोमवार - शनिवार" }, "time": "9:30 AM - 8:00 PM", "open": true },
-    { "days": { "en": "Sunday", "hi": "रविवार" }, "time": { "en": "Closed", "hi": "बंद" }, "open": false }
+    {
+      "days": {
+        "en": "Monday - Saturday",
+        "hi": "सोमवार - शनिवार"
+      },
+      "time": "9:30 AM - 8:00 PM",
+      "open": true
+    },
+    {
+      "days": {
+        "en": "Sunday",
+        "hi": "रविवार"
+      },
+      "time": {
+        "en": "Closed",
+        "hi": "बंद"
+      },
+      "open": false
+    }
   ],
   "deliveryAreas": {
-    "en": ["Kanpur Nagar", "Kanpur Dehat", "Unnao", "Fatehpur", "Kannauj", "Lucknow"],
-    "hi": ["कानपुर नगर", "कानपुर देहात", "उन्नाव", "फतेहपुर", "कन्नौज", "लखनऊ"]
+    "en": [
+      "Kanpur Nagar",
+      "Kanpur Dehat",
+      "Unnao",
+      "Fatehpur",
+      "Kannauj",
+      "Lucknow"
+    ],
+    "hi": [
+      "कानपुर नगर",
+      "कानपुर देहात",
+      "उन्नाव",
+      "फतेहपुर",
+      "कन्नौज",
+      "लखनऊ"
+    ]
+  },
+  "proprietor": {
+    "name": {
+      "en": "",
+      "hi": ""
+    },
+    "role": {
+      "en": "Proprietor",
+      "hi": "संचालक"
+    },
+    "photo": "assets/proprietor.jpg",
+    "bio": {
+      "en": "The counter on Birhana Road runs on one principle: genuine stock, correct billing, and a straight answer about what is available and when. Chemists across Kanpur order from us because they know exactly who they are dealing with.",
+      "hi": "बिरहाना रोड का यह काउंटर एक ही उसूल पर चलता है — असली माल, सही बिल, और क्या मिलेगा और कब मिलेगा इसका सीधा जवाब। कानपुर भर के केमिस्ट हमसे इसीलिए मँगाते हैं, क्योंकि वे जानते हैं कि वे किससे काम कर रहे हैं।"
+    }
   }
 }

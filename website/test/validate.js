@@ -136,6 +136,20 @@ check('business profile has the fields the page renders', () => {
   return null;
 });
 
+check('proprietor block is complete and the photo file exists', () => {
+  const pr = business.proprietor;
+  if (!pr) return 'business.json has no "proprietor" block';
+  if (!pr.role || !pr.role.en || !pr.role.hi) return 'proprietor.role needs en + hi';
+  if (!pr.bio || !pr.bio.en || !pr.bio.hi) return 'proprietor.bio needs en + hi';
+  if (!/[\u0900-\u097F]/.test(pr.bio.hi)) return 'proprietor.bio.hi is not in Devanagari';
+  if (!pr.photo) return 'proprietor.photo is not set';
+  const abs = path.join(ROOT, pr.photo);
+  if (!fs.existsSync(abs)) return `proprietor photo missing at ${pr.photo}`;
+  const kb = fs.statSync(abs).size / 1024;
+  if (kb > 250) return `proprietor photo is ${kb.toFixed(0)} KB — too heavy to inline, keep it under 250 KB`;
+  return null;
+});
+
 check('WhatsApp number is digits only (wa.me format)', () =>
   /^[0-9]{10,15}$/.test(business.whatsapp) ? null : `"${business.whatsapp}" is not a wa.me number`);
 
