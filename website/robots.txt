@@ -1,0 +1,4 @@
+# Dr. Om Prakash Gupta — Senior Advocate
+# The site is informational. Search engines may index it freely.
+User-agent: *
+Allow: /

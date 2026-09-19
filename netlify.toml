@@ -1,0 +1,53 @@
+# Netlify deployment configuration
+# ---------------------------------
+# This repository's website lives in the `website/` folder. Netlify publishes
+# that folder as-is: there is no build step, no dependencies to install and
+# nothing to compile — it is plain HTML, CSS, JavaScript and one image.
+
+[build]
+  publish = "website"
+  command = ""
+
+# ---- Security headers -------------------------------------------------------
+# Applied to every page served from the site.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), interest-cohort=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
+
+# ---- Caching ----------------------------------------------------------------
+# The page itself must always be fresh, so that edits appear immediately.
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Styles, script and the portrait change rarely and are safe to cache for a day.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# ---- Keep repository notes off the public site ------------------------------
+# website/README.md is internal documentation for the chamber, not a page.
+[[redirects]]
+  from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# ---- Tidy URLs --------------------------------------------------------------
+# Anyone landing on /appointment is sent to the booking section of the page.
+[[redirects]]
+  from = "/appointment"
+  to = "/#appointment"
+  status = 302
+
+[[redirects]]
+  from = "/contact"
+  to = "/#contact"
+  status = 302
