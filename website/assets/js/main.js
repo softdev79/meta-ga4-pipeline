@@ -17,6 +17,12 @@ var CHAMBER = {
   var $  = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
+  /* ---------------- Language ---------------- */
+  var T = function (key) {
+    return (typeof SiteLang !== 'undefined') ? SiteLang.plain(key) : '';
+  };
+  if (typeof SiteLang !== 'undefined') { SiteLang.init(); }
+
   /* ---------------- Current year ---------------- */
   var yearEl = $('#year');
   if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
@@ -46,7 +52,7 @@ var CHAMBER = {
     toggle.addEventListener('click', function () {
       var open = nav.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      toggle.setAttribute('aria-label', T(open ? 'nav.close' : 'nav.open'));
     });
     $$('a', nav).forEach(function (link) {
       link.addEventListener('click', function () {
@@ -139,36 +145,36 @@ var CHAMBER = {
         matter = $('#f-matter'), time = $('#f-time'), consent = $('#f-consent');
 
     if (name.value.trim().length < 3) {
-      setError(name, 'Please enter your full name.'); ok = false;
+      setError(name, T('err.name')); ok = false;
     }
 
     var digits = phone.value.replace(/\D/g, '');
     if (!/^(91)?[6-9]\d{9}$/.test(digits)) {
-      setError(phone, 'Please enter a valid 10-digit Indian mobile number.'); ok = false;
+      setError(phone, T('err.phone')); ok = false;
     }
 
     if (email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) {
-      setError(email, 'Please enter a valid email address, or leave it blank.'); ok = false;
+      setError(email, T('err.email')); ok = false;
     }
 
-    if (!matter.value) { setError(matter, 'Please select the nature of your matter.'); ok = false; }
-    if (!time.value)   { setError(time, 'Please choose a preferred time.'); ok = false; }
+    if (!matter.value) { setError(matter, T('err.matter')); ok = false; }
+    if (!time.value)   { setError(time, T('err.time')); ok = false; }
 
     if (!dateInput.value) {
-      setError(dateInput, 'Please choose a preferred date.'); ok = false;
+      setError(dateInput, T('err.date')); ok = false;
     } else {
       var parts = dateInput.value.split('-');
       var chosen = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
       var floorToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
       if (chosen <= floorToday) {
-        setError(dateInput, 'Please choose a date from tomorrow onwards.'); ok = false;
+        setError(dateInput, T('err.past')); ok = false;
       } else if (chosen.getDay() === 0) {
-        setError(dateInput, 'The chamber is closed on Sunday. Please choose another day.'); ok = false;
+        setError(dateInput, T('err.sunday')); ok = false;
       }
     }
 
     if (!consent.checked) {
-      setError(consent, 'Please acknowledge the note above to continue.'); ok = false;
+      setError(consent, T('err.consent')); ok = false;
     }
 
     if (!ok) {
@@ -181,29 +187,34 @@ var CHAMBER = {
   function prettyDate(value) {
     var parts = value.split('-');
     var d = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
-    return d.toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    return d.toLocaleDateString(T('msg.locale') || 'en-IN',
+      { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
   }
 
   function buildMessage() {
     var val = function (id) { return ($(id).value || '').trim(); };
+    var dash = '—';
     var lines = [
-      'Appointment request — ' + CHAMBER.name,
+      T('msg.title') + ' — ' + (T('hero.name') || CHAMBER.name),
       '',
-      'Name: ' + val('#f-name'),
-      'Mobile: ' + val('#f-phone'),
-      'Email: ' + (val('#f-email') || '—'),
-      'City / District: ' + (val('#f-city') || '—'),
-      'Mode: ' + val('#f-mode'),
-      'Nature of matter: ' + val('#f-matter'),
-      'Preferred date: ' + prettyDate(val('#f-date')),
-      'Preferred time: ' + val('#f-time'),
+      T('msg.name')   + ': ' + val('#f-name'),
+      T('msg.mobile') + ': ' + val('#f-phone'),
+      T('msg.email')  + ': ' + (val('#f-email') || dash),
+      T('msg.city')   + ': ' + (val('#f-city') || dash),
+      T('msg.mode')   + ': ' + val('#f-mode'),
+      T('msg.matter') + ': ' + val('#f-matter'),
+      T('msg.date')   + ': ' + prettyDate(val('#f-date')),
+      T('msg.time')   + ': ' + val('#f-time'),
       '',
-      'Brief: ' + (val('#f-brief') || '—'),
+      T('msg.brief')  + ': ' + (val('#f-brief') || dash),
       '',
-      'Sent from the chamber website.'
+      T('msg.from')
     ];
     return lines.join('\n');
   }
+
+  /* a switch of language would otherwise leave errors in the old one */
+  document.addEventListener('langchange', clearErrors);
 
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
@@ -211,7 +222,7 @@ var CHAMBER = {
     var url = 'https://wa.me/' + CHAMBER.whatsapp + '?text=' + encodeURIComponent(buildMessage());
     window.open(url, '_blank', 'noopener');
     if (status) {
-      status.textContent = 'WhatsApp has been opened with your request. Please press send there to deliver it to the chamber.';
+      status.textContent = T('st.wa');
       status.classList.add('is-ok');
     }
   });
@@ -220,13 +231,13 @@ var CHAMBER = {
   if (emailBtn) {
     emailBtn.addEventListener('click', function () {
       if (!validate()) { return; }
-      var subject = 'Appointment request — ' + ($('#f-name').value || '').trim();
+      var subject = T('msg.title') + ' — ' + ($('#f-name').value || '').trim();
       var href = 'mailto:' + CHAMBER.email +
         '?subject=' + encodeURIComponent(subject) +
         '&body=' + encodeURIComponent(buildMessage());
       window.location.href = href;
       if (status) {
-        status.textContent = 'Your email application has been opened with the request filled in. Please press send there.';
+        status.textContent = T('st.mail');
         status.classList.add('is-ok');
       }
     });

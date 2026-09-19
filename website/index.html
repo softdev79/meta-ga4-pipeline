@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dr. Om Prakash Gupta — Senior Advocate, Kanpur Nagar Court</title>
-<meta name="description" content="Dr. Om Prakash Gupta, Senior Advocate with over 47 years of legal experience, practising at the Kanpur Nagar Court. Chamber No. 1, Genius Senior Advocate &amp; Associates. Book a consultation.">
+<meta name="description" content="Dr. Om Prakash Gupta, Senior Advocate with over 47 years of legal experience, practising at the Kanpur Nagar Court. Chamber No. 1, Genius Senior Advocate &amp; Associates. Available in Hindi and English.">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Dr. Om Prakash Gupta — Senior Advocate, Kanpur Nagar Court">
 <meta property="og:description" content="Over 47 years in legal consultation. Civil, criminal, property, family, service and writ matters.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/img/advocate-portrait.jpg">
+<meta property="og:image" content="assets/img/advocate-profile.jpg">
 <meta name="theme-color" content="#0b1b2f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600;700&family=Noto+Sans+Devanagari:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230b1b2f'/%3E%3Ctext x='50' y='69' font-size='58' font-family='Georgia,serif' fill='%23c9a227' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
 </head>
@@ -23,18 +23,18 @@
 <div class="gate" id="disclaimer" role="dialog" aria-modal="true" aria-labelledby="gate-title" hidden>
   <div class="gate__box">
     <span class="gate__mark" aria-hidden="true">G</span>
-    <h2 id="gate-title">Disclaimer</h2>
-    <p>As per the rules of the Bar Council of India, an advocate is not permitted to solicit
+    <h2 id="gate-title" data-i18n="gate.title">Disclaimer</h2>
+    <p data-i18n-html="gate.p">As per the rules of the Bar Council of India, an advocate is not permitted to solicit
       work or advertise. By clicking &ldquo;I Agree&rdquo; you acknowledge that:</p>
     <ul>
-      <li>there has been no advertisement, solicitation, invitation or inducement of any sort from the advocate or the chamber;</li>
-      <li>you wish to gain information about the advocate for your own information and use;</li>
-      <li>all information on this site is provided on your specific request and entirely at your own volition;</li>
-      <li>nothing here constitutes legal advice, and no advocate&ndash;client relationship is created by your use of this site.</li>
+      <li data-i18n="gate.li1">there has been no advertisement, solicitation, invitation or inducement of any sort from the advocate or the chamber;</li>
+      <li data-i18n="gate.li2">you wish to gain information about the advocate for your own information and use;</li>
+      <li data-i18n="gate.li3">all information on this site is provided on your specific request and entirely at your own volition;</li>
+      <li data-i18n="gate.li4">nothing here constitutes legal advice, and no advocate&ndash;client relationship is created by your use of this site.</li>
     </ul>
     <div class="gate__actions">
-      <button type="button" class="btn btn--gold" id="gate-agree">I Agree</button>
-      <a class="btn btn--plain" href="https://www.google.com">I Do Not Agree</a>
+      <button type="button" class="btn btn--gold" id="gate-agree" data-i18n="gate.agree">I Agree</button>
+      <a class="btn btn--plain" href="https://www.google.com" data-i18n="gate.no">I Do Not Agree</a>
     </div>
   </div>
 </div>
@@ -43,10 +43,17 @@
 <div class="utility">
   <div class="wrap utility__inner">
     <span class="utility__motto" lang="hi">सत्य मेव जयते</span>
-    <div class="utility__links">
-      <a href="tel:+919450132436"><span aria-hidden="true">&#9742;</span> +91 94501 32436</a>
+
+    <div class="utility__right">
+      <div class="langswitch" role="group" data-i18n-aria="lang.switch" aria-label="Choose language">
+        <button type="button" data-lang-btn="en" aria-pressed="true">English</button>
+        <button type="button" data-lang-btn="hi" aria-pressed="false" lang="hi">हिन्दी</button>
+      </div>
       <span class="utility__sep" aria-hidden="true"></span>
-      <a href="mailto:opguptaadv.8@gmail.com"><span aria-hidden="true">&#9993;</span> opguptaadv.8@gmail.com</a>
+      <div class="utility__links">
+        <a href="tel:+919450132436"><span aria-hidden="true">&#9742;</span> +91 94501 32436</a>
+        <a href="mailto:opguptaadv.8@gmail.com"><span aria-hidden="true">&#9993;</span> opguptaadv.8@gmail.com</a>
+      </div>
     </div>
   </div>
 </div>
@@ -58,21 +65,22 @@
       <span class="brand__seal" aria-hidden="true">G</span>
       <span class="brand__words">
         <strong>Genius</strong>
-        <small>Senior Advocate &amp; Associates</small>
+        <small data-i18n="brand.sub">Senior Advocate &amp; Associates</small>
       </span>
     </a>
 
-    <button class="burger" id="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+    <button class="burger" id="nav-toggle" aria-expanded="false" aria-controls="nav"
+            data-i18n-aria="nav.open" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
 
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="#about">About</a>
-      <a href="#practice">Practice</a>
-      <a href="#process">Process</a>
-      <a href="#appointment">Appointment</a>
-      <a href="#contact">Contact</a>
-      <a class="btn btn--gold btn--sm nav__cta" href="#appointment">Book Appointment</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#practice" data-i18n="nav.practice">Practice</a>
+      <a href="#process" data-i18n="nav.process">Process</a>
+      <a href="#appointment" data-i18n="nav.appt">Appointment</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a class="btn btn--gold btn--sm nav__cta" href="#appointment" data-i18n="nav.cta">Book Appointment</a>
     </nav>
   </div>
 </header>
@@ -84,48 +92,51 @@
   <!-- Visiting card, across the top of the banner -->
   <div class="wrap">
     <figure class="cardstrip reveal">
-      <a href="assets/img/visiting-card.jpg" target="_blank" rel="noopener" title="Open the visiting card full size">
+      <a href="assets/img/visiting-card.jpg" target="_blank" rel="noopener"
+         data-i18n-title="hero.cardtitle" title="Open the visiting card full size">
         <img src="assets/img/visiting-card.jpg"
              alt="Visiting card of Dr. Om Prakash Gupta, Senior Advocate — over 47 years in legal consultation, contact 9450132436, Genius Senior Advocate and Associates"
              width="1400" height="800" loading="eager">
       </a>
-      <figcaption>Visiting card &mdash; tap to view full size</figcaption>
+      <figcaption data-i18n="hero.cardcap">Visiting card &mdash; tap to view full size</figcaption>
     </figure>
   </div>
 
   <div class="wrap hero__inner">
     <div class="hero__text reveal">
-      <p class="kicker">Kanpur Nagar Court &bull; Chamber No. 1</p>
-      <h1>Dr. Om Prakash Gupta</h1>
-      <p class="hero__title"><span lang="hi">वरिष्ठ अधिवक्ता</span> &middot; Senior Advocate</p>
-      <p class="hero__lead">
+      <p class="kicker" data-i18n="hero.kicker">Kanpur Nagar Court &bull; Chamber No. 1</p>
+      <h1 data-i18n="hero.name">Dr. Om Prakash Gupta</h1>
+      <p class="hero__title" data-i18n="hero.role">Senior Advocate</p>
+      <p class="hero__lead" data-i18n-html="hero.lead">
         <strong>Over 47 years</strong> in legal consultation and courtroom practice &mdash;
         advising and representing clients in civil, criminal, property, revenue, family and
         service matters before the courts at Kanpur Nagar.
       </p>
       <div class="hero__cta">
-        <a class="btn btn--gold btn--lg" href="#appointment">Book an Appointment</a>
-        <a class="btn btn--line btn--lg" href="tel:+919450132436">Call +91 94501 32436</a>
+        <a class="btn btn--gold btn--lg" href="#appointment" data-i18n="hero.cta1">Book an Appointment</a>
+        <a class="btn btn--line btn--lg" href="tel:+919450132436" data-i18n="hero.cta2">Call +91 94501 32436</a>
       </div>
     </div>
 
     <figure class="hero__figure reveal">
-      <div class="hero__stage">
-        <span class="hero__glow" aria-hidden="true"></span>
-        <img class="hero__cutout" src="assets/img/advocate.png"
-             alt="Dr. Om Prakash Gupta in advocate's robes at the court premises"
-             width="412" height="978" loading="eager">
+      <div class="hero__frame">
+        <img class="hero__portrait" src="assets/img/advocate-profile.jpg"
+             alt="Dr. Om Prakash Gupta, Senior Advocate, in his chamber"
+             width="680" height="850" loading="eager">
       </div>
-      <figcaption>Dr. Om Prakash Gupta<span>Senior Advocate</span></figcaption>
+      <figcaption>
+        <span class="hero__capname" data-i18n="hero.name">Dr. Om Prakash Gupta</span>
+        <span class="hero__caprole" data-i18n="hero.role">Senior Advocate</span>
+      </figcaption>
     </figure>
   </div>
 
   <div class="wrap">
     <ul class="ledger reveal">
-      <li><strong>47<sup>+</sup></strong><span>Years of practice</span></li>
-      <li><strong>12</strong><span>Areas of law</span></li>
-      <li><strong>No.&nbsp;1</strong><span>Chamber, Kanpur Nagar Court</span></li>
-      <li><strong>2</strong><span>Languages &mdash; Hindi &amp; English</span></li>
+      <li><strong>47<sup>+</sup></strong><span data-i18n="ledger.1">Years of practice</span></li>
+      <li><strong>12</strong><span data-i18n="ledger.2">Areas of law</span></li>
+      <li><strong data-i18n-html="ledger.3v">No.&nbsp;1</strong><span data-i18n="ledger.3">Chamber, Kanpur Nagar Court</span></li>
+      <li><strong>2</strong><span data-i18n="ledger.4">Languages — Hindi &amp; English</span></li>
     </ul>
   </div>
 </section>
@@ -134,31 +145,34 @@
 <section class="band" id="about">
   <div class="wrap about">
     <figure class="about__photo reveal">
-      <img src="assets/img/advocate-portrait.jpg" alt="Portrait of Dr. Om Prakash Gupta, Senior Advocate"
-           width="560" height="720" loading="lazy">
+      <div class="about__plinth">
+        <img src="assets/img/advocate.png" alt="Dr. Om Prakash Gupta in advocate's robes at the court premises"
+             width="412" height="978" loading="lazy">
+      </div>
+      <figcaption data-i18n="about.caption">At the court premises</figcaption>
     </figure>
 
     <div class="about__body reveal">
-      <p class="kicker kicker--dark">About the Advocate</p>
-      <h2>Nearly five decades at the bar,<br>one standard of counsel.</h2>
-      <p>
+      <p class="kicker kicker--dark" data-i18n="about.kicker">About the Advocate</p>
+      <h2 data-i18n-html="about.h2">Nearly five decades at the bar,<br>one standard of counsel.</h2>
+      <p data-i18n-html="about.p1">
         Dr. Om Prakash Gupta is a Senior Advocate with more than forty-seven years of continuous
         practice. His chamber &mdash; <strong>Genius Senior Advocate &amp; Associates, Chamber No. 1
         at the Kanpur Nagar Court</strong> &mdash; advises individuals, families, landholders,
         employees, traders and small businesses, and appears for them at every stage: from the
         first notice through trial, appeal and revision.
       </p>
-      <p>
+      <p data-i18n-html="about.p2">
         The chamber&rsquo;s approach is deliberately plain. An honest reading of the case at the
         first meeting. A realistic view of time and cost. Documentation prepared carefully enough
         that it holds up years later. Clients are told what the law permits, not what they would
         prefer to hear.
       </p>
       <ul class="ticks">
-        <li>Practice before the District &amp; Sessions Court and subordinate courts at Kanpur Nagar</li>
-        <li>Appearances before tribunals, revenue authorities and consumer commissions</li>
-        <li>Drafting, vetting and registration of deeds, agreements and settlements</li>
-        <li>Consultation in Hindi and English</li>
+        <li data-i18n-html="about.t1">Practice before the District &amp; Sessions Court and subordinate courts at Kanpur Nagar</li>
+        <li data-i18n-html="about.t2">Appearances before tribunals, revenue authorities and consumer commissions</li>
+        <li data-i18n-html="about.t3">Drafting, vetting and registration of deeds, agreements and settlements</li>
+        <li data-i18n-html="about.t4">Consultation in Hindi and English</li>
       </ul>
     </div>
   </div>
@@ -168,25 +182,25 @@
 <section class="band band--paper" id="practice">
   <div class="wrap">
     <header class="lede reveal">
-      <p class="kicker kicker--dark">Practice Areas</p>
-      <h2>Matters the chamber handles</h2>
-      <p>If your matter is not listed here, please still ask. The chamber will tell you frankly
+      <p class="kicker kicker--dark" data-i18n="pr.kicker">Practice Areas</p>
+      <h2 data-i18n="pr.h2">Matters the chamber handles</h2>
+      <p data-i18n="pr.sub">If your matter is not listed here, please still ask. The chamber will tell you frankly
         whether it is the right place for it.</p>
     </header>
 
     <div class="areas">
-      <article class="area reveal"><span class="area__n">01</span><h3>Civil Litigation</h3><p>Suits for declaration, possession, injunction, specific performance, partition, recovery and damages; appeals and revisions.</p></article>
-      <article class="area reveal"><span class="area__n">02</span><h3>Criminal Law</h3><p>Bail and anticipatory bail, quashing petitions, trial defence, complaints, appeals and revisions.</p></article>
-      <article class="area reveal"><span class="area__n">03</span><h3>Property &amp; Land</h3><p>Title examination, sale, gift and partition deeds, mutation, boundary and possession disputes, builder disputes.</p></article>
-      <article class="area reveal"><span class="area__n">04</span><h3>Revenue &amp; Tenancy</h3><p>Proceedings before the Tehsildar, SDM and Commissioner; land records, varasat, chakbandi and revenue appeals.</p></article>
-      <article class="area reveal"><span class="area__n">05</span><h3>Family &amp; Matrimonial</h3><p>Divorce, restitution, maintenance, custody and guardianship, domestic violence proceedings, mutual settlements.</p></article>
-      <article class="area reveal"><span class="area__n">06</span><h3>Service &amp; Labour</h3><p>Departmental enquiries, termination and suspension, promotion and seniority, pension and retiral dues, labour disputes.</p></article>
-      <article class="area reveal"><span class="area__n">07</span><h3>Writs &amp; Constitutional</h3><p>Writ petitions under Article 226 against State action, public authorities and statutory bodies; contempt proceedings.</p></article>
-      <article class="area reveal"><span class="area__n">08</span><h3>Cheque Bounce &amp; Recovery</h3><p>Complaints under Section 138 of the Negotiable Instruments Act, legal notices, money suits and execution.</p></article>
-      <article class="area reveal"><span class="area__n">09</span><h3>Motor Accident Claims</h3><p>Compensation claims before the MACT, insurance disputes and appeals against inadequate awards.</p></article>
-      <article class="area reveal"><span class="area__n">10</span><h3>Consumer Protection</h3><p>Complaints before the District, State and National Commissions for deficiency in service and unfair trade practice.</p></article>
-      <article class="area reveal"><span class="area__n">11</span><h3>Succession &amp; Wills</h3><p>Wills, succession certificates, probate and letters of administration, family settlements and inheritance disputes.</p></article>
-      <article class="area reveal"><span class="area__n">12</span><h3>Agreements &amp; Drafting</h3><p>Drafting and vetting of agreements, power of attorney, lease and rent deeds, notices, affidavits and undertakings.</p></article>
+      <article class="area reveal"><span class="area__n">01</span><h3 data-i18n-html="pr.1h">Civil Litigation</h3><p data-i18n="pr.1p">Suits for declaration, possession, injunction, specific performance, partition, recovery and damages; appeals and revisions.</p></article>
+      <article class="area reveal"><span class="area__n">02</span><h3 data-i18n-html="pr.2h">Criminal Law</h3><p data-i18n="pr.2p">Bail and anticipatory bail, quashing petitions, trial defence, complaints, appeals and revisions.</p></article>
+      <article class="area reveal"><span class="area__n">03</span><h3 data-i18n-html="pr.3h">Property &amp; Land</h3><p data-i18n="pr.3p">Title examination, sale, gift and partition deeds, mutation, boundary and possession disputes, builder disputes.</p></article>
+      <article class="area reveal"><span class="area__n">04</span><h3 data-i18n-html="pr.4h">Revenue &amp; Tenancy</h3><p data-i18n="pr.4p">Proceedings before the Tehsildar, SDM and Commissioner; land records, varasat, chakbandi and revenue appeals.</p></article>
+      <article class="area reveal"><span class="area__n">05</span><h3 data-i18n-html="pr.5h">Family &amp; Matrimonial</h3><p data-i18n="pr.5p">Divorce, restitution, maintenance, custody and guardianship, domestic violence proceedings, mutual settlements.</p></article>
+      <article class="area reveal"><span class="area__n">06</span><h3 data-i18n-html="pr.6h">Service &amp; Labour</h3><p data-i18n="pr.6p">Departmental enquiries, termination and suspension, promotion and seniority, pension and retiral dues, labour disputes.</p></article>
+      <article class="area reveal"><span class="area__n">07</span><h3 data-i18n-html="pr.7h">Writs &amp; Constitutional</h3><p data-i18n="pr.7p">Writ petitions under Article 226 against State action, public authorities and statutory bodies; contempt proceedings.</p></article>
+      <article class="area reveal"><span class="area__n">08</span><h3 data-i18n-html="pr.8h">Cheque Bounce &amp; Recovery</h3><p data-i18n="pr.8p">Complaints under Section 138 of the Negotiable Instruments Act, legal notices, money suits and execution.</p></article>
+      <article class="area reveal"><span class="area__n">09</span><h3 data-i18n-html="pr.9h">Motor Accident Claims</h3><p data-i18n="pr.9p">Compensation claims before the MACT, insurance disputes and appeals against inadequate awards.</p></article>
+      <article class="area reveal"><span class="area__n">10</span><h3 data-i18n-html="pr.10h">Consumer Protection</h3><p data-i18n="pr.10p">Complaints before the District, State and National Commissions for deficiency in service and unfair trade practice.</p></article>
+      <article class="area reveal"><span class="area__n">11</span><h3 data-i18n-html="pr.11h">Succession &amp; Wills</h3><p data-i18n="pr.11p">Wills, succession certificates, probate and letters of administration, family settlements and inheritance disputes.</p></article>
+      <article class="area reveal"><span class="area__n">12</span><h3 data-i18n-html="pr.12h">Agreements &amp; Drafting</h3><p data-i18n="pr.12p">Drafting and vetting of agreements, power of attorney, lease and rent deeds, notices, affidavits and undertakings.</p></article>
     </div>
   </div>
 </section>
@@ -195,14 +209,14 @@
 <section class="band" id="process">
   <div class="wrap">
     <header class="lede reveal">
-      <p class="kicker kicker--dark">How It Works</p>
-      <h2>From your first call to your first hearing</h2>
+      <p class="kicker kicker--dark" data-i18n="ps.kicker">How It Works</p>
+      <h2 data-i18n="ps.h2">From your first call to your first hearing</h2>
     </header>
     <ol class="rail">
-      <li class="reveal"><span class="rail__n">1</span><h3>Request an appointment</h3><p>Fill the form below or call the chamber. Mention your city and the nature of the dispute in a line or two.</p></li>
-      <li class="reveal"><span class="rail__n">2</span><h3>Confirmation</h3><p>The chamber confirms your slot on WhatsApp or by phone, and tells you which papers to bring.</p></li>
-      <li class="reveal"><span class="rail__n">3</span><h3>Consultation</h3><p>Your papers are read, the position in law is explained, and the realistic options, timeline and cost are set out.</p></li>
-      <li class="reveal"><span class="rail__n">4</span><h3>Representation</h3><p>If you decide to proceed, drafting begins, the matter is filed, and you are kept informed at every date.</p></li>
+      <li class="reveal"><span class="rail__n">1</span><h3 data-i18n="ps.1h">Request an appointment</h3><p data-i18n="ps.1p">Fill the form below or call the chamber. Mention your city and the nature of the dispute in a line or two.</p></li>
+      <li class="reveal"><span class="rail__n">2</span><h3 data-i18n="ps.2h">Confirmation</h3><p data-i18n="ps.2p">The chamber confirms your slot on WhatsApp or by phone, and tells you which papers to bring.</p></li>
+      <li class="reveal"><span class="rail__n">3</span><h3 data-i18n="ps.3h">Consultation</h3><p data-i18n="ps.3p">Your papers are read, the position in law is explained, and the realistic options, timeline and cost are set out.</p></li>
+      <li class="reveal"><span class="rail__n">4</span><h3 data-i18n="ps.4h">Representation</h3><p data-i18n="ps.4p">If you decide to proceed, drafting begins, the matter is filed, and you are kept informed at every date.</p></li>
     </ol>
   </div>
 </section>
@@ -211,119 +225,119 @@
 <section class="band band--ink" id="appointment">
   <div class="wrap appt">
     <div class="appt__side reveal">
-      <p class="kicker">Appointment</p>
-      <h2>Book a consultation</h2>
-      <p>Complete the form and your request goes straight to the chamber on WhatsApp &mdash; or by
+      <p class="kicker" data-i18n="ap.kicker">Appointment</p>
+      <h2 data-i18n="ap.h2">Book a consultation</h2>
+      <p data-i18n="ap.p">Complete the form and your request goes straight to the chamber on WhatsApp &mdash; or by
         email, if you prefer. You will receive confirmation of the date and time before the meeting.</p>
       <ul class="ticks ticks--light">
-        <li>Chamber sittings <strong>Monday to Saturday</strong>; Sunday and court holidays closed</li>
-        <li>Telephone and video consultation for outstation clients</li>
-        <li>Please carry all original documents and any notice or order received</li>
-        <li>Your details are used only to arrange and conduct the consultation</li>
+        <li data-i18n-html="ap.t1">Chamber sittings <strong>Monday to Saturday</strong>; Sunday and court holidays closed</li>
+        <li data-i18n-html="ap.t2">Telephone and video consultation for outstation clients</li>
+        <li data-i18n-html="ap.t3">Please carry all original documents and any notice or order received</li>
+        <li data-i18n-html="ap.t4">Your details are used only to arrange and conduct the consultation</li>
       </ul>
       <div class="appt__direct">
-        <a class="btn btn--line btn--light" href="tel:+919450132436">Call the chamber</a>
-        <a class="btn btn--line btn--light" href="https://wa.me/919450132436" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn--line btn--light" href="tel:+919450132436" data-i18n="ap.call">Call the chamber</a>
+        <a class="btn btn--line btn--light" href="https://wa.me/919450132436" target="_blank" rel="noopener" data-i18n="ap.wa">WhatsApp</a>
       </div>
     </div>
 
     <form class="form reveal" id="appt-form" novalidate>
       <div class="field">
-        <label for="f-name">Full name <span class="req" aria-hidden="true">*</span></label>
-        <input type="text" id="f-name" name="name" autocomplete="name" required placeholder="Your full name">
+        <label for="f-name"><span data-i18n="f.name">Full name</span> <span class="req" aria-hidden="true">*</span></label>
+        <input type="text" id="f-name" name="name" autocomplete="name" required data-i18n-ph="f.name.ph" placeholder="Your full name">
         <p class="error" data-for="f-name"></p>
       </div>
 
       <div class="field-row">
         <div class="field">
-          <label for="f-phone">Mobile number <span class="req" aria-hidden="true">*</span></label>
-          <input type="tel" id="f-phone" name="phone" inputmode="numeric" autocomplete="tel" required placeholder="10-digit mobile number">
+          <label for="f-phone"><span data-i18n="f.phone">Mobile number</span> <span class="req" aria-hidden="true">*</span></label>
+          <input type="tel" id="f-phone" name="phone" inputmode="numeric" autocomplete="tel" required data-i18n-ph="f.phone.ph" placeholder="10-digit mobile number">
           <p class="error" data-for="f-phone"></p>
         </div>
         <div class="field">
-          <label for="f-email">Email <small>(optional)</small></label>
-          <input type="email" id="f-email" name="email" autocomplete="email" placeholder="name@example.com">
+          <label for="f-email"><span data-i18n="f.email">Email</span> <small data-i18n="f.email.opt">(optional)</small></label>
+          <input type="email" id="f-email" name="email" autocomplete="email" data-i18n-ph="f.email.ph" placeholder="name@example.com">
           <p class="error" data-for="f-email"></p>
         </div>
       </div>
 
       <div class="field-row">
         <div class="field">
-          <label for="f-city">City / District</label>
-          <input type="text" id="f-city" name="city" placeholder="e.g. Kanpur Nagar">
+          <label for="f-city" data-i18n="f.city">City / District</label>
+          <input type="text" id="f-city" name="city" data-i18n-ph="f.city.ph" placeholder="e.g. Kanpur Nagar">
         </div>
         <div class="field">
-          <label for="f-mode">Mode of consultation</label>
+          <label for="f-mode" data-i18n="f.mode">Mode of consultation</label>
           <select id="f-mode" name="mode">
-            <option>In chamber</option>
-            <option>Telephone</option>
-            <option>Video call</option>
+            <option data-i18n="f.mode.1">In chamber</option>
+            <option data-i18n="f.mode.2">Telephone</option>
+            <option data-i18n="f.mode.3">Video call</option>
           </select>
         </div>
       </div>
 
       <div class="field">
-        <label for="f-matter">Nature of matter <span class="req" aria-hidden="true">*</span></label>
+        <label for="f-matter"><span data-i18n="f.matter">Nature of matter</span> <span class="req" aria-hidden="true">*</span></label>
         <select id="f-matter" name="matter" required>
-          <option value="">Please select</option>
-          <option>Civil suit / property dispute</option>
-          <option>Criminal matter / bail</option>
-          <option>Revenue or land record matter</option>
-          <option>Family or matrimonial matter</option>
-          <option>Service or labour matter</option>
-          <option>Writ petition</option>
-          <option>Cheque bounce / money recovery</option>
-          <option>Motor accident claim</option>
-          <option>Consumer complaint</option>
-          <option>Succession, will or probate</option>
-          <option>Drafting or documentation</option>
-          <option>Other / not sure</option>
+          <option value="" data-i18n="f.select">Please select</option>
+          <option data-i18n="f.m1">Civil suit / property dispute</option>
+          <option data-i18n="f.m2">Criminal matter / bail</option>
+          <option data-i18n="f.m3">Revenue or land record matter</option>
+          <option data-i18n="f.m4">Family or matrimonial matter</option>
+          <option data-i18n="f.m5">Service or labour matter</option>
+          <option data-i18n="f.m6">Writ petition</option>
+          <option data-i18n="f.m7">Cheque bounce / money recovery</option>
+          <option data-i18n="f.m8">Motor accident claim</option>
+          <option data-i18n="f.m9">Consumer complaint</option>
+          <option data-i18n="f.m10">Succession, will or probate</option>
+          <option data-i18n="f.m11">Drafting or documentation</option>
+          <option data-i18n="f.m12">Other / not sure</option>
         </select>
         <p class="error" data-for="f-matter"></p>
       </div>
 
       <div class="field-row">
         <div class="field">
-          <label for="f-date">Preferred date <span class="req" aria-hidden="true">*</span></label>
+          <label for="f-date"><span data-i18n="f.date">Preferred date</span> <span class="req" aria-hidden="true">*</span></label>
           <input type="date" id="f-date" name="date" required>
           <p class="error" data-for="f-date"></p>
         </div>
         <div class="field">
-          <label for="f-time">Preferred time <span class="req" aria-hidden="true">*</span></label>
+          <label for="f-time"><span data-i18n="f.time">Preferred time</span> <span class="req" aria-hidden="true">*</span></label>
           <select id="f-time" name="time" required>
-            <option value="">Please select</option>
+            <option value="" data-i18n="f.select">Please select</option>
             <option>09:00 AM &ndash; 10:00 AM</option>
             <option>10:00 AM &ndash; 11:00 AM</option>
             <option>04:00 PM &ndash; 05:00 PM</option>
             <option>05:00 PM &ndash; 06:00 PM</option>
             <option>06:00 PM &ndash; 07:00 PM</option>
-            <option>Any time &mdash; chamber may decide</option>
+            <option data-i18n="f.t6">Any time &mdash; chamber may decide</option>
           </select>
           <p class="error" data-for="f-time"></p>
         </div>
       </div>
 
       <div class="field">
-        <label for="f-brief">Brief description of your matter</label>
-        <textarea id="f-brief" name="brief" rows="4" maxlength="700" placeholder="In two or three lines: what happened, when, and what stage the matter is at."></textarea>
+        <label for="f-brief" data-i18n="f.brief">Brief description of your matter</label>
+        <textarea id="f-brief" name="brief" rows="4" maxlength="700" data-i18n-ph="f.brief.ph" placeholder="In two or three lines: what happened, when, and what stage the matter is at."></textarea>
         <p class="hint"><span id="f-count">0</span>/700</p>
       </div>
 
       <div class="field field--check">
         <input type="checkbox" id="f-consent" name="consent" required>
-        <label for="f-consent">I understand that submitting this form does not create an
+        <label for="f-consent"><span data-i18n="f.consent">I understand that submitting this form does not create an
           advocate&ndash;client relationship, and that no legal advice is given until the
-          consultation takes place. <span class="req" aria-hidden="true">*</span></label>
+          consultation takes place.</span> <span class="req" aria-hidden="true">*</span></label>
         <p class="error" data-for="f-consent"></p>
       </div>
 
       <div class="form__actions">
-        <button type="submit" class="btn btn--gold btn--block">Send request on WhatsApp</button>
-        <button type="button" class="btn btn--line btn--block" id="send-email">Send request by email instead</button>
+        <button type="submit" class="btn btn--gold btn--block" data-i18n="f.sendwa">Send request on WhatsApp</button>
+        <button type="button" class="btn btn--line btn--block" id="send-email" data-i18n="f.sendmail">Send request by email instead</button>
       </div>
 
       <!-- Requested note: email senders must also telephone the chamber -->
-      <p class="callout callout--warn">
+      <p class="callout callout--warn" data-i18n-html="f.note">
         <strong>Please note:</strong> if you send your details by <strong>email</strong>, kindly
         also inform the chamber on a <a href="tel:+919450132436">phone call</a> for the same, so
         that your message is not missed.
@@ -341,12 +355,12 @@
              width="684" height="684" loading="lazy">
       </div>
       <div class="pay__text">
-        <p class="kicker">Consultation Fee</p>
-        <h3 id="pay-title">Payment by UPI</h3>
-        <p>Scan the code with any UPI application &mdash; Google&nbsp;Pay, PhonePe, Paytm, BHIM or
+        <p class="kicker" data-i18n="pay.kicker">Consultation Fee</p>
+        <h3 id="pay-title" data-i18n="pay.h3">Payment by UPI</h3>
+        <p data-i18n-html="pay.p">Scan the code with any UPI application &mdash; Google&nbsp;Pay, PhonePe, Paytm, BHIM or
           your bank&rsquo;s own app &mdash; to pay the consultation fee.</p>
-        <p class="pay__id">UPI ID <strong>omprakashadv8@okhdfcbank</strong></p>
-        <p class="pay__warn">Please confirm the amount with the chamber by phone before paying, and
+        <p class="pay__id"><span data-i18n="pay.id">UPI ID</span> <strong>omprakashadv8@okhdfcbank</strong></p>
+        <p class="pay__warn" data-i18n="pay.warn">Please confirm the amount with the chamber by phone before paying, and
           keep the transaction reference. The chamber never asks for an OTP, a PIN or card details
           &mdash; if anyone does, it is not us.</p>
       </div>
@@ -358,32 +372,32 @@
 <section class="band band--paper" id="contact">
   <div class="wrap">
     <header class="lede reveal">
-      <p class="kicker kicker--dark">Contact</p>
-      <h2>Chamber &amp; contact details</h2>
+      <p class="kicker kicker--dark" data-i18n="ct.kicker">Contact</p>
+      <h2 data-i18n-html="ct.h2">Chamber &amp; contact details</h2>
     </header>
 
     <div class="contacts">
       <article class="contact reveal">
-        <h3>Chamber</h3>
-        <p><strong>Genius Senior Advocate &amp; Associates</strong><br>
+        <h3 data-i18n="ct.ch">Chamber</h3>
+        <p data-i18n-html="ct.cp"><strong>Genius Senior Advocate &amp; Associates</strong><br>
           <strong>Chamber No. 1</strong><br>
           Kanpur Nagar Court<br>
           District &amp; Sessions Court campus, Kanpur Nagar</p>
       </article>
       <article class="contact reveal">
-        <h3>Telephone</h3>
+        <h3 data-i18n="ct.ph">Telephone</h3>
         <p><a href="tel:+919450132436">+91 94501 32436</a><br>
-          <a href="https://wa.me/919450132436" target="_blank" rel="noopener">Message on WhatsApp</a></p>
+          <a href="https://wa.me/919450132436" target="_blank" rel="noopener" data-i18n="ct.wa">Message on WhatsApp</a></p>
       </article>
       <article class="contact reveal">
-        <h3>Email</h3>
+        <h3 data-i18n="ct.em">Email</h3>
         <p><a href="mailto:opguptaadv.8@gmail.com">opguptaadv.8@gmail.com</a></p>
-        <p class="contact__note">After emailing your details, please also inform the chamber
+        <p class="contact__note" data-i18n="ct.emnote">After emailing your details, please also inform the chamber
           on a phone call for the same.</p>
       </article>
       <article class="contact reveal">
-        <h3>Chamber hours</h3>
-        <p>Monday &ndash; Saturday<br>
+        <h3 data-i18n="ct.hr">Chamber hours</h3>
+        <p data-i18n-html="ct.hrp">Monday &ndash; Saturday<br>
           Morning and evening sittings by appointment<br>
           Sunday and court holidays: closed</p>
       </article>
@@ -397,31 +411,32 @@
     <div class="footer__brand">
       <span class="brand__seal" aria-hidden="true">G</span>
       <div>
-        <p class="footer__name">Dr. Om Prakash Gupta &mdash; Senior Advocate</p>
-        <p class="footer__sub">Genius Senior Advocate &amp; Associates &bull; Chamber No. 1, Kanpur Nagar Court</p>
+        <p class="footer__name" data-i18n-html="ft.name">Dr. Om Prakash Gupta &mdash; Senior Advocate</p>
+        <p class="footer__sub" data-i18n-html="ft.sub">Genius Senior Advocate &amp; Associates &bull; Chamber No. 1, Kanpur Nagar Court</p>
       </div>
     </div>
     <nav class="footer__nav" aria-label="Footer">
-      <a href="#about">About</a>
-      <a href="#practice">Practice</a>
-      <a href="#appointment">Appointment</a>
-      <a href="#contact">Contact</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#practice" data-i18n="nav.practice">Practice</a>
+      <a href="#appointment" data-i18n="nav.appt">Appointment</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
   </div>
   <div class="wrap footer__legal">
-    <p>The contents of this website are for general information only and do not constitute legal
+    <p data-i18n-html="ft.legal">The contents of this website are for general information only and do not constitute legal
       advice. No advocate&ndash;client relationship is created by accessing this website or by
       sending an appointment request. In accordance with the rules of the Bar Council of India,
       this website is not an advertisement or a solicitation of work.</p>
-    <p class="footer__copy">&copy; <span id="year"></span> Genius Senior Advocate &amp; Associates.</p>
+    <p class="footer__copy">&copy; <span id="year"></span> <span data-i18n-html="ft.copy">Genius Senior Advocate &amp; Associates.</span></p>
   </div>
 </footer>
 
 <div class="fab">
-  <a class="fab__btn fab__btn--call" href="tel:+919450132436" aria-label="Call the chamber">&#9742;</a>
-  <a class="fab__btn fab__btn--wa" href="https://wa.me/919450132436" target="_blank" rel="noopener" aria-label="Message the chamber on WhatsApp">&#128172;</a>
+  <a class="fab__btn fab__btn--call" href="tel:+919450132436" data-i18n-aria="fab.call" aria-label="Call the chamber">&#9742;</a>
+  <a class="fab__btn fab__btn--wa" href="https://wa.me/919450132436" target="_blank" rel="noopener" data-i18n-aria="fab.wa" aria-label="Message the chamber on WhatsApp">&#128172;</a>
 </div>
 
+<script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

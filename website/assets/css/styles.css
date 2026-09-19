@@ -21,6 +21,7 @@
   --serif:"Playfair Display", Georgia, "Times New Roman", serif;
   --sans:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   --deva:"Noto Serif Devanagari", var(--serif);
+  --deva-sans:"Noto Sans Devanagari", var(--sans);
   --r:3px;
   --shadow:0 10px 34px rgba(11,27,47,.10);
   --shadow-lg:0 26px 60px rgba(11,27,47,.30);
@@ -53,6 +54,36 @@ p{margin:0 0 1.05em}
 .lede{max-width:700px;margin:0 auto clamp(34px,4.5vw,56px);text-align:center}
 .lede .kicker{justify-content:center}
 .lede p{color:var(--text)}
+
+/* Hindi needs Devanagari faces: Playfair and Inter carry no Devanagari glyphs,
+   so without this the browser falls back to whatever it has and the page
+   loses its typographic voice. */
+html[lang="hi"] body{font-family:var(--deva-sans);line-height:1.85}
+html[lang="hi"] h1,
+html[lang="hi"] h2,
+html[lang="hi"] h3{font-family:var(--deva);line-height:1.38}
+html[lang="hi"] h1{letter-spacing:0}
+html[lang="hi"] .kicker{letter-spacing:.08em;text-transform:none;font-size:.8rem}
+html[lang="hi"] .ledger span,
+html[lang="hi"] .hero__caprole,
+html[lang="hi"] .brand__words small,
+html[lang="hi"] .about__photo figcaption,
+html[lang="hi"] .area__n,
+html[lang="hi"] .cardstrip figcaption{text-transform:none;letter-spacing:.03em}
+html[lang="hi"] .btn{letter-spacing:0}
+
+/* ------------------------------------------------------- language switch */
+.langswitch{display:inline-flex;border:1px solid rgba(201,162,39,.45);border-radius:999px;
+  padding:2px;background:rgba(255,255,255,.05)}
+.langswitch button{
+  appearance:none;border:0;background:transparent;color:#b9c6d6;cursor:pointer;
+  font-family:var(--sans);font-size:.76rem;font-weight:600;letter-spacing:.04em;
+  padding:.32em 1em;border-radius:999px;transition:background .2s,color .2s;
+}
+.langswitch button[lang="hi"]{font-family:var(--deva-sans)}
+.langswitch button:hover{color:var(--gold-2)}
+.langswitch button[aria-pressed="true"]{background:var(--gold);color:#16233a}
+.utility__right{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end}
 
 /* ---------------------------------------------------------------- buttons */
 .btn{
@@ -155,23 +186,17 @@ p{margin:0 0 1.05em}
 .hero__lead strong{color:#fff}
 .hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin:26px 0 42px}
 
-.hero__figure{position:relative;margin:0;text-align:center}
-/* lighter stage panel so the dark robes separate from the navy background */
-.hero__stage{
-  position:relative;display:flex;align-items:flex-end;justify-content:center;
-  padding:22px 18px 0;border-radius:6px;overflow:hidden;
-  background:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,.04) 58%,rgba(201,162,39,.09));
-  border:1px solid rgba(201,162,39,.30);
+.hero__figure{position:relative;margin:0;text-align:center;max-width:390px;justify-self:end;width:100%}
+.hero__frame{
+  position:relative;padding:9px;border-radius:5px;
+  background:linear-gradient(150deg,var(--gold-2),var(--gold-dim));
+  box-shadow:var(--shadow-lg);line-height:0;
 }
-.hero__glow{position:absolute;left:50%;bottom:8%;transform:translateX(-50%);
-  width:86%;height:70%;border-radius:50%;
-  background:radial-gradient(circle,rgba(224,189,88,.30),rgba(224,189,88,.08) 55%,transparent 72%)}
-.hero__cutout{position:relative;height:clamp(340px,46vh,500px);width:auto;max-width:100%;
-  filter:drop-shadow(0 18px 24px rgba(0,0,0,.5))}
-.hero__figure figcaption{position:relative;margin-top:10px;padding-top:14px;
-  font-family:var(--serif);font-size:1.05rem;color:#fff;border-top:1px solid var(--line-ink)}
-.hero__figure figcaption span{display:block;font-family:var(--sans);font-size:.7rem;
-  letter-spacing:.17em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+.hero__portrait{width:100%;border-radius:2px}
+.hero__figure figcaption{margin-top:14px;padding-top:13px;border-top:1px solid var(--line-ink)}
+.hero__capname{display:block;font-family:var(--serif);font-size:1.08rem;color:#fff}
+.hero__caprole{display:block;font-family:var(--sans);font-size:.7rem;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--gold);margin-top:3px}
 
 /* the four figures under the hero */
 .ledger{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);margin:0;padding:26px 0 34px;
@@ -191,9 +216,17 @@ p{margin:0 0 1.05em}
 /* ------------------------------------------------------------------ about */
 .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,64px);align-items:center}
 .about__photo{margin:0;position:relative}
-.about__photo img{border-radius:var(--r);box-shadow:var(--shadow);width:100%}
-.about__photo::after{content:"";position:absolute;inset:14px -14px -14px 14px;z-index:-1;
-  border:1px solid var(--gold);border-radius:var(--r)}
+.about__plinth{
+  display:flex;justify-content:center;align-items:flex-end;padding:26px 18px 0;
+  border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--line);
+  background:
+    radial-gradient(70% 55% at 50% 78%, rgba(201,162,39,.16), transparent 70%),
+    linear-gradient(180deg,#fdfcfa,#e9e6dd);
+}
+.about__plinth img{width:auto;height:clamp(300px,38vw,430px);max-width:100%;
+  filter:drop-shadow(0 14px 18px rgba(11,27,47,.28))}
+.about__photo figcaption{margin-top:12px;text-align:center;font-size:.76rem;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dim)}
 .ticks{list-style:none;padding:0;margin:1.5em 0 0}
 .ticks li{position:relative;padding-left:1.8em;margin-bottom:.62em}
 .ticks li::before{content:"\2713";position:absolute;left:0;top:-1px;color:var(--gold-dim);font-weight:700}
@@ -309,7 +342,8 @@ p{margin:0 0 1.05em}
   font-family:var(--serif);font-size:1.7rem;font-weight:700;margin-bottom:26px}
 .notfound .kicker{justify-content:center}
 .notfound h1{color:#fff;font-size:clamp(1.7rem,4vw,2.5rem)}
-.notfound__lead{color:#c2cfdd;margin-bottom:28px}
+.notfound__lead{color:#c2cfdd;margin-bottom:18px}
+.notfound__lead[lang="hi"]{font-family:var(--deva-sans);font-size:.95rem;color:#a9bacd;margin-bottom:28px}
 .notfound__actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
 .notfound__contact{font-size:.9rem;color:#93a5b9}
 .notfound__contact a{color:var(--gold)}
@@ -320,11 +354,9 @@ p{margin:0 0 1.05em}
   .hero__cta{justify-content:center}
   .hero__lead{margin-inline:auto}
   .hero__figure{order:-1;margin-bottom:8px}
-  .hero__figure{max-width:330px;margin-inline:auto}
-  .hero__cutout{height:clamp(300px,42vh,420px)}
+  .hero__figure{max-width:300px;margin-inline:auto;justify-self:center}
   .about{grid-template-columns:1fr}
-  .about__photo{max-width:360px;margin-inline:auto}
-  .about__photo::after{display:none}
+  .about__photo{max-width:340px;margin-inline:auto}
   .appt{grid-template-columns:1fr}
   .ledger{grid-template-columns:repeat(2,1fr);gap:22px 0}
   .ledger li:nth-child(2){border-right:0}
@@ -339,6 +371,8 @@ p{margin:0 0 1.05em}
   .nav a{padding:12px 0;border-bottom:1px solid var(--line)}
   .nav__cta{margin-top:12px;border-bottom:0}
   .utility__inner{justify-content:center;text-align:center}
+  .utility__right{justify-content:center;width:100%}
+  .utility__sep{display:none}
   .field-row{grid-template-columns:1fr}
   .pay{grid-template-columns:1fr;text-align:center;justify-items:center}
   .pay .kicker{justify-content:center}

@@ -8,9 +8,10 @@ No build step, no framework, no server. Three files plus one photograph.
 ```
 website/
 ├── index.html                  all page content
-├── 404.html                    branded "page not found"
+├── 404.html                    branded "page not found" (bilingual)
 ├── robots.txt                  lets search engines index the site
 ├── assets/css/styles.css       all styling (colour tokens at the top)
+├── assets/js/i18n.js           Hindi/English dictionary and switching
 ├── assets/js/main.js           menu, disclaimer gate, appointment form
 └── assets/img/advocate.jpg     portrait, cropped from the visiting card
 
@@ -21,7 +22,7 @@ netlify.toml                    (repository root) hosting configuration
 
 | Section | What it does |
 |---|---|
-| Hero | Visiting card across the top of the banner, then name, designation, photograph and two calls to action |
+| Hero | Visiting card across the top of the banner, then name, designation, portrait and two calls to action |
 | About | Short biography and an "at a glance" credentials card |
 | Practice Areas | Twelve areas of law the chamber handles |
 | How It Works | Four steps from first call to representation |
@@ -29,6 +30,35 @@ netlify.toml                    (repository root) hosting configuration
 | **Payment by UPI** | QR code and UPI ID, directly below the booking form |
 | Contact | Chamber address, phone, email, chamber hours |
 | Footer | Bar Council disclaimer and copyright |
+
+## Hindi and English
+
+The whole site switches language from the buttons at the top right —
+**English / हिन्दी**. Nothing is half-translated: headings, body text, all
+twelve practice areas, every form label, placeholder and dropdown option, the
+validation messages, the payment section and the footer disclaimer all have
+Hindi text of their own.
+
+Three details worth knowing:
+
+- **The choice is remembered.** It is stored in the browser, so a client who
+  picks Hindi once gets Hindi on every later visit. A visitor whose phone or
+  browser is already set to Hindi is shown Hindi on their very first visit,
+  without touching the switch.
+- **The appointment request follows the language.** If a client fills the form
+  in Hindi, the WhatsApp message that reaches the chamber is written in Hindi
+  too — Hindi labels, Hindi date ("सोमवार 21 सितंबर 2026"), Hindi answers.
+- **Typography changes with it.** Playfair Display and Inter have no Devanagari
+  glyphs at all, so Hindi uses Noto Serif Devanagari for headings and Noto Sans
+  Devanagari for body text, with looser line spacing and no letter-spacing,
+  which Devanagari does not take well.
+
+### Editing or adding text
+
+Every string lives in `assets/js/i18n.js`, in an `en` block and a `hi` block
+with matching keys. To change a line, change it in both places. The English
+text is also written into `index.html` itself, so if the script ever fails to
+load, the page still reads correctly in English rather than showing blanks.
 
 ## How the appointment booking works
 
@@ -186,11 +216,14 @@ All four images were prepared from the two photographs supplied:
   perspective transform was applied to square it up, followed by mild contrast
   and sharpening. It is legible at full size and links to itself, so a visitor
   can tap to enlarge it.
-- **`advocate.png`** — the background of the court photograph was removed, and
-  the figure now stands on a designed panel that is part of the page rather than
-  part of the image. This is why the file is a PNG: it needs transparency.
-- **`advocate-portrait.jpg`** — a head-and-shoulders crop of the same photograph
-  on a soft neutral backdrop, used in the About section.
+- **`advocate-profile.jpg`** — the chamber photograph, with the office
+  background (chair, wall calendar) removed and replaced by a plain studio
+  backdrop, then cropped to a 4:5 portrait. This is the main profile photograph,
+  shown in a gold frame in the hero.
+- **`advocate.png`** — the earlier full-length court photograph, background
+  removed. It has moved to the About section, where it stands on a light plinth
+  and shows the advocate in robes at the court. This one is a PNG because it
+  needs transparency.
 - **`upi-qr.png`** — regenerated from the payload decoded out of the card's QR,
   at the highest error-correction level. Verified to decode back to the identical
   payload, including at the 186px size the page displays it at.
