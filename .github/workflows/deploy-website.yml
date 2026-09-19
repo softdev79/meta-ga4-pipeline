@@ -1,9 +1,8 @@
 # Deploys the Ajay Pharma website to GitHub Pages (free hosting).
 #
-# One-time setup by the repository owner:
-#   Settings -> Pages -> Build and deployment -> Source: "GitHub Actions"
-# After that, every push to this branch republishes the site at:
-#   https://softdev79.github.io/meta-ga4-pipeline/
+# No manual setup needed: actions/configure-pages below turns Pages on via the
+# API (enablement: true) the first time this runs, using the workflow's own
+# `pages: write` permission. Every later push republishes the site.
 name: Deploy website
 
 on:
@@ -33,7 +32,14 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
+
+      # Turns Pages on if it has never been enabled, and reports the base URL.
+      - name: Enable GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Validate the medicine database
         working-directory: website
