@@ -100,20 +100,31 @@ deploy a broken catalogue.
 
 ## Deploying (free options)
 
-### GitHub Pages — already wired up
+### Netlify Drop — fastest, no account needed to try
 
-`.github/workflows/deploy-website.yml` builds and deploys on every push.
-The repository owner has to switch it on once:
+Run `node build.js`, then drag the `dist` folder onto
+[app.netlify.com/drop](https://app.netlify.com/drop). You get a live HTTPS URL
+in a few seconds. Sign in afterwards if you want to keep it permanently or
+rename the subdomain. Cloudflare Pages and tiiny.host work the same way.
 
-**Settings → Pages → Build and deployment → Source: “GitHub Actions”**
+Because `build.js` inlines everything, `dist/index.html` is the entire site —
+a single file you can upload anywhere, email to yourself, or open from a pen
+drive with no server at all.
+
+### GitHub Pages — workflow is wired up, needs one switch
+
+`.github/workflows/deploy-website.yml` validates, builds and deploys on every
+push. Two things the automation cannot do for itself:
+
+1. **Enable Pages:** Settings → Pages → Build and deployment → Source:
+   **“GitHub Actions”**. The workflow token can deploy to a Pages site but is
+   not allowed to create one (`Resource not accessible by integration`), so
+   this click is unavoidable.
+2. **Deploy from the default branch:** Pages only deploys from `main` unless
+   you add another branch under Settings → Environments → `github-pages`. So
+   merge the website branch into `main`.
 
 The site then lives at `https://softdev79.github.io/meta-ga4-pipeline/`.
-
-### Netlify / Cloudflare Pages — drag and drop
-
-Both give a free subdomain and free HTTPS. Run `node build.js`, then drop the
-`dist` folder onto [app.netlify.com/drop](https://app.netlify.com/drop). Nothing
-else to configure — it is a plain static folder.
 
 ### A custom domain
 

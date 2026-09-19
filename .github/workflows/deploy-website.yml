@@ -1,8 +1,17 @@
 # Deploys the Ajay Pharma website to GitHub Pages (free hosting).
 #
-# No manual setup needed: actions/configure-pages below turns Pages on via the
-# API (enablement: true) the first time this runs, using the workflow's own
-# `pages: write` permission. Every later push republishes the site.
+# ONE-TIME SETUP by the repository owner, then this runs on every push:
+#
+#   Settings -> Pages -> Build and deployment -> Source: "GitHub Actions"
+#
+# This cannot be automated. `pages: write` lets the workflow token DEPLOY to a
+# Pages site, but creating one needs admin rights the token does not have —
+# actions/configure-pages with enablement:true returns "Resource not accessible
+# by integration". Verified on run 35425134690.
+#
+# Pages deploys from the DEFAULT branch, so merge this branch into main first
+# (or add it under Settings -> Environments -> github-pages -> deployment
+# branches). Site URL: https://softdev79.github.io/meta-ga4-pipeline/
 name: Deploy website
 
 on:
@@ -34,12 +43,10 @@ jobs:
         with:
           node-version: '22'
 
-      # Turns Pages on if it has never been enabled, and reports the base URL.
-      - name: Enable GitHub Pages
+      # Resolves the site's base URL. Does not enable Pages — see the note above.
+      - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Validate the medicine database
         working-directory: website
