@@ -1,0 +1,12 @@
+[
+  { "id": "respiratory", "en": "Respiratory", "hi": "श्वास एवं दमा" },
+  { "id": "allergy",     "en": "Allergy",     "hi": "एलर्जी" },
+  { "id": "antibiotic",  "en": "Antibiotic",  "hi": "एंटीबायोटिक" },
+  { "id": "pain",        "en": "Pain Relief", "hi": "दर्द निवारक" },
+  { "id": "diabetes",    "en": "Diabetes",    "hi": "मधुमेह" },
+  { "id": "cardiac",     "en": "Cardiac",     "hi": "हृदय रोग" },
+  { "id": "gastro",      "en": "Gastro",      "hi": "पेट एवं एसिडिटी" },
+  { "id": "vitamins",    "en": "Vitamins",    "hi": "विटामिन" },
+  { "id": "skin",        "en": "Skin & Antiseptic", "hi": "त्वचा एवं एंटीसेप्टिक" },
+  { "id": "general",     "en": "General",     "hi": "सामान्य" }
+]

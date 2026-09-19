@@ -1,0 +1,13 @@
+{
+  "name": "ajay-pharma-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bilingual website and medicine rate list for Ajay Pharma, Birhana Road, Kanpur",
+  "scripts": {
+    "build": "node build.js",
+    "test": "node test/validate.js",
+    "test:browser": "node test/smoke.js",
+    "check": "node test/validate.js && node build.js && node test/smoke.js"
+  },
+  "engines": { "node": ">=18" }
+}

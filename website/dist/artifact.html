@@ -1,0 +1,1090 @@
+<title>Ajay Pharma Kanpur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+/* ===== tokens: light ===== */
+:root{
+  --paper:#F2F6F3; --surface:#FFFFFF; --surface-2:#E9F0EB; --sunk:#DFE9E2;
+  --ink:#0E1A15; --ink-2:#38493F; --muted:#66786D;
+  --line:#D6E1D9; --line-strong:#BBCCC1;
+  --brand:#046A4E; --brand-deep:#023D2D; --brand-soft:#E0EFE7; --brand-ink:#FFFFFF;
+  --amber:#B87500; --amber-soft:#FBEFD8;
+  --rx:#A83526; --rx-soft:#FBE7E3;
+  --ok:#11734F;
+  --bar-bg:#023D2D; --bar-ink:#FFFFFF;
+  --shadow:0 1px 2px rgba(6,32,22,.06), 0 8px 24px -12px rgba(6,32,22,.18);
+  --radius:14px; --radius-s:9px;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Mukta","Noto Sans Devanagari",system-ui,-apple-system,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B1310; --surface:#121D18; --surface-2:#16241E; --sunk:#0E1814;
+    --ink:#E8F1EB; --ink-2:#BACCC1; --muted:#8CA396;
+    --line:#22332B; --line-strong:#31473C;
+    --brand:#46B98C; --brand-deep:#8FD9BB; --brand-soft:#12291F; --brand-ink:#04120C;
+    --amber:#E5A33C; --amber-soft:#2B2113;
+    --rx:#EE8C7B; --rx-soft:#2E1714;
+    --ok:#46B98C; --bar-bg:#1B3729; --bar-ink:#E8F1EB;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B1310; --surface:#121D18; --surface-2:#16241E; --sunk:#0E1814;
+  --ink:#E8F1EB; --ink-2:#BACCC1; --muted:#8CA396;
+  --line:#22332B; --line-strong:#31473C;
+  --brand:#46B98C; --brand-deep:#8FD9BB; --brand-soft:#12291F; --brand-ink:#04120C;
+  --amber:#E5A33C; --amber-soft:#2B2113;
+  --rx:#EE8C7B; --rx-soft:#2E1714;
+  --ok:#46B98C; --bar-bg:#1B3729; --bar-ink:#E8F1EB;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.8);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--body); font-size:16px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display); text-wrap:balance; margin:0; letter-spacing:-.02em; line-height:1.1}
+p{margin:0}
+ul,ol{margin:0; padding:0; list-style:none}
+button{font:inherit; color:inherit; background:none; border:0; cursor:pointer}
+input{font:inherit}
+:focus-visible{outline:2.5px solid var(--brand); outline-offset:2px; border-radius:4px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+
+.wrap{width:100%; max-width:1140px; margin-inline:auto; padding-inline:18px}
+.eyebrow{
+  font-family:var(--mono); font-size:11.5px; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--muted);
+}
+.num{font-family:var(--mono); font-variant-numeric:tabular-nums}
+
+/* ===== header ===== */
+.topbar{
+  position:sticky; top:env(safe-area-inset-top,0px); z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(12px); border-bottom:1px solid var(--line);
+}
+.topbar__in{display:flex; align-items:center; gap:14px; min-height:62px; padding-block:9px}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none; margin-right:auto}
+.brand__mark{width:38px; height:38px; flex:none; border-radius:10px; display:block}
+.brand__name{font-family:var(--display); font-weight:800; font-size:18.5px; letter-spacing:-.025em; line-height:1.05}
+.brand__sub{font-size:11.5px; color:var(--muted); line-height:1.2; letter-spacing:.01em}
+.nav{display:flex; gap:4px}
+.nav a{
+  text-decoration:none; font-size:14.5px; font-weight:500; color:var(--ink-2);
+  padding:7px 11px; border-radius:8px;
+}
+.nav a:hover{background:var(--surface-2); color:var(--ink)}
+.langtog{display:flex; border:1px solid var(--line-strong); border-radius:999px; padding:2px; background:var(--surface)}
+.langtog button{
+  font-size:13.5px; font-weight:600; padding:5px 12px; border-radius:999px;
+  color:var(--ink-2); line-height:1.4;
+}
+.langtog button:hover{color:var(--brand)}
+.langtog button[aria-pressed="true"]{background:var(--brand); color:var(--brand-ink)}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  font-weight:600; font-size:15px; padding:11px 17px; border-radius:11px;
+  text-decoration:none; border:1px solid transparent; transition:transform .12s ease, background .15s ease;
+}
+.btn:active{transform:translateY(1px)}
+.btn--primary{background:var(--brand); color:var(--brand-ink)}
+.btn--primary:hover{background:var(--brand-deep); color:var(--brand-ink)}
+.btn--ghost{background:var(--surface); border-color:var(--line-strong); color:var(--ink)}
+.btn--ghost:hover{border-color:var(--brand); color:var(--brand)}
+.btn--sm{padding:8px 13px; font-size:14px; border-radius:9px}
+.topbar .btn{white-space:nowrap}
+.only-wide{display:none}
+@media (min-width:900px){ .only-wide{display:inline-flex} .nav{display:flex} }
+@media (max-width:899px){ .nav{display:none} }
+
+/* ===== hero ===== */
+.hero{padding-block:34px 30px}
+.hero__grid{display:grid; gap:26px; grid-template-columns:1fr}
+@media (min-width:920px){ .hero__grid{grid-template-columns:1.25fr .85fr; gap:44px; align-items:start} .hero{padding-block:52px 44px} }
+.hero h1{font-size:clamp(33px,6.4vw,54px); font-weight:800; margin-top:12px}
+.hero h1 .tint{color:var(--brand)}
+.lede{margin-top:16px; font-size:clamp(16px,2.1vw,18.5px); color:var(--ink-2); max-width:56ch}
+.hero__cta{display:flex; flex-wrap:wrap; gap:11px; margin-top:24px}
+.hero__facts{display:grid; grid-template-columns:repeat(3,auto); justify-content:start; gap:8px 30px;
+  margin-top:26px; padding-top:20px; border-top:1px solid var(--line)}
+@media (max-width:520px){ .hero__facts{grid-template-columns:1fr 1fr; gap:14px 20px} }
+.fact{display:flex; align-items:baseline; gap:8px; align-self:start}
+.fact b{font-family:var(--mono); font-weight:600; font-size:19px; color:var(--brand); font-variant-numeric:tabular-nums}
+.fact span{font-size:13.5px; color:var(--muted); max-width:16ch; line-height:1.3}
+
+/* counter card — a wholesaler's trade panel */
+.counter{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
+.counter__head{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  padding:13px 17px; background:var(--brand-deep); color:#fff;
+}
+:root[data-theme="dark"] .counter__head{background:var(--brand-soft); color:var(--brand-deep)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .counter__head{background:var(--brand-soft); color:var(--brand-deep)}}
+.counter__head .eyebrow{color:inherit; opacity:.85}
+.counter__rows{padding:6px 17px 14px}
+.crow{display:flex; justify-content:space-between; align-items:baseline; gap:14px; padding:11px 0; border-bottom:1px dashed var(--line)}
+.crow:last-child{border-bottom:0}
+.crow dt{font-size:13.5px; color:var(--muted); flex:none}
+.crow dd{margin:0; font-size:14px; font-weight:600; text-align:right; word-break:break-word}
+.status{display:inline-flex; align-items:center; gap:7px; font-size:13.5px; font-weight:600}
+.dot{width:8px; height:8px; border-radius:50%; background:var(--ok); flex:none; box-shadow:0 0 0 3px color-mix(in srgb,var(--ok) 22%, transparent)}
+.dot--off{background:var(--muted); box-shadow:0 0 0 3px color-mix(in srgb,var(--muted) 20%, transparent)}
+
+/* ===== quick actions ===== */
+.actions{padding-block:6px 30px}
+.actions__grid{display:grid; gap:11px; grid-template-columns:repeat(2,1fr)}
+@media (min-width:760px){ .actions__grid{grid-template-columns:repeat(4,1fr)} }
+.act{
+  display:flex; flex-direction:column; gap:3px; text-decoration:none;
+  padding:15px 16px; border-radius:var(--radius); background:var(--surface);
+  border:1px solid var(--line); min-height:88px; justify-content:center;
+  transition:border-color .15s ease, transform .12s ease;
+}
+.act:hover{border-color:var(--brand); transform:translateY(-2px)}
+.act:active{transform:translateY(0)}
+.act__ico{width:22px; height:22px; color:var(--brand); margin-bottom:5px}
+.act__label{font-size:12.5px; color:var(--muted); line-height:1.25}
+.act__value{font-weight:700; font-size:15.5px; letter-spacing:-.01em; line-height:1.25; word-break:break-word}
+
+/* ===== section chrome ===== */
+.sec{padding-block:38px; border-top:1px solid var(--line)}
+.sec__head{display:flex; flex-wrap:wrap; gap:10px 20px; align-items:flex-end; justify-content:space-between; margin-bottom:22px}
+.sec h2{font-size:clamp(24px,4vw,33px); font-weight:700; margin-top:7px}
+.sec__note{font-size:13.5px; color:var(--muted); max-width:44ch}
+
+/* ===== rate list ===== */
+.tools{display:grid; gap:12px; margin-bottom:18px}
+.search{position:relative; display:flex; align-items:center}
+.search svg{position:absolute; left:15px; width:19px; height:19px; color:var(--muted); pointer-events:none}
+.search input{
+  width:100%; padding:14px 15px 14px 44px; font-size:16px; color:var(--ink);
+  background:var(--surface); border:1.5px solid var(--line-strong); border-radius:12px;
+}
+.search input::placeholder{color:var(--muted)}
+.search input:focus{outline:none; border-color:var(--brand); box-shadow:0 0 0 3.5px var(--brand-soft)}
+.search__clear{position:absolute; right:8px; padding:8px; color:var(--muted); border-radius:8px; line-height:0}
+.search__clear:hover{color:var(--ink); background:var(--surface-2)}
+.chips{display:flex; gap:7px; overflow-x:auto; padding-bottom:3px; scrollbar-width:thin}
+.chip{
+  flex:none; padding:7px 13px; border-radius:999px; font-size:13.5px; font-weight:600;
+  border:1px solid var(--line-strong); background:var(--surface); color:var(--ink-2); white-space:nowrap;
+}
+.chip:hover{border-color:var(--brand); color:var(--brand)}
+.chip[aria-pressed="true"]{background:var(--brand); border-color:var(--brand); color:var(--brand-ink)}
+.chips--co .chip[aria-pressed="true"]{background:var(--amber); border-color:var(--amber); color:#fff}
+:root[data-theme="dark"] .chips--co .chip[aria-pressed="true"]{color:#1A1206}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chips--co .chip[aria-pressed="true"]{color:#1A1206}}
+
+.count{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-bottom:10px; letter-spacing:.02em}
+
+.list{border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); overflow:hidden}
+.list__head{
+  display:none; gap:16px; padding:10px 18px; background:var(--sunk);
+  border-bottom:1px solid var(--line); font-family:var(--mono);
+  font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--muted);
+}
+.row{display:grid; gap:6px 16px; padding:15px 18px; border-bottom:1px solid var(--line); align-items:center}
+.row:last-child{border-bottom:0}
+.row:hover{background:var(--surface-2)}
+@media (min-width:860px){
+  .list__head,.row{grid-template-columns:minmax(0,1fr) 118px 120px 96px 132px}
+  .list__head{display:grid}
+  .row{gap:16px}
+}
+.med__name{font-weight:700; font-size:15.5px; letter-spacing:-.01em; line-height:1.3}
+.med__hi{font-size:14px; color:var(--ink-2); line-height:1.35}
+.med__salt{font-size:12.5px; color:var(--muted); line-height:1.4; margin-top:3px}
+.badges{display:inline-flex; gap:6px; margin-left:7px; vertical-align:middle}
+.tag{
+  font-family:var(--mono); font-size:9.5px; font-weight:600; letter-spacing:.08em;
+  padding:2.5px 6px; border-radius:5px; text-transform:uppercase; white-space:nowrap;
+}
+.tag--rx{background:var(--rx-soft); color:var(--rx)}
+.tag--otc{background:var(--brand-soft); color:var(--brand)}
+.tag--order{background:var(--amber-soft); color:var(--amber)}
+.cell-lbl{display:inline; font-size:12px; color:var(--muted); margin-right:5px}
+@media (min-width:860px){ .cell-lbl{display:none} }
+.co{font-size:13.5px; font-weight:600; color:var(--ink-2)}
+.pack{font-family:var(--mono); font-size:13px; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.mrp{font-family:var(--mono); font-size:15px; font-weight:600; font-variant-numeric:tabular-nums; white-space:nowrap}
+.addwrap{display:flex; justify-content:flex-start}
+@media (min-width:860px){ .addwrap{justify-content:flex-end} }
+.add{
+  padding:8px 15px; border-radius:9px; font-size:14px; font-weight:600;
+  border:1.5px solid var(--brand); color:var(--brand); background:var(--surface);
+}
+.add:hover{background:var(--brand); color:var(--brand-ink)}
+.step{display:inline-flex; align-items:center; border:1.5px solid var(--brand); border-radius:9px; overflow:hidden; background:var(--surface)}
+.step button{width:34px; height:34px; font-size:18px; font-weight:600; color:var(--brand); line-height:1}
+.step button:hover{background:var(--brand-soft)}
+.step span{
+  min-width:34px; text-align:center; font-family:var(--mono); font-weight:600; font-size:14.5px;
+  font-variant-numeric:tabular-nums; border-inline:1.5px solid var(--brand);
+}
+.empty{padding:46px 20px; text-align:center; color:var(--muted)}
+.empty b{display:block; font-family:var(--display); font-size:18px; color:var(--ink); margin-bottom:5px}
+
+/* ===== companies ===== */
+.cos{display:grid; gap:13px; grid-template-columns:1fr}
+@media (min-width:700px){ .cos{grid-template-columns:1fr 1fr} }
+.co-card{padding:22px; border-radius:var(--radius); border:1px solid var(--line); background:var(--surface)}
+.co-card--lead{border-left:4px solid var(--brand)}
+.co-card h3{font-size:20px; font-weight:700; display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.co-card p{margin-top:9px; font-size:14.5px; color:var(--ink-2)}
+.pill{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; background:var(--brand-soft); color:var(--brand); padding:3px 8px; border-radius:6px; font-weight:600}
+.co-more{margin-top:15px; display:flex; flex-wrap:wrap; gap:7px}
+.co-more li{font-size:13px; font-weight:500; color:var(--ink-2); background:var(--surface-2); border:1px solid var(--line); padding:5px 11px; border-radius:8px}
+
+/* ===== services ===== */
+.svc{display:grid; gap:2px; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:var(--line)}
+@media (min-width:700px){ .svc{grid-template-columns:1fr 1fr} }
+@media (min-width:1000px){ .svc{grid-template-columns:repeat(3,1fr)} }
+.svc li{background:var(--surface); padding:22px}
+.svc h3{font-size:16.5px; font-weight:700; margin-bottom:7px}
+.svc p{font-size:14px; color:var(--ink-2)}
+.svc__n{font-family:var(--mono); font-size:11px; color:var(--brand); letter-spacing:.1em; display:block; margin-bottom:9px}
+
+/* ===== contact ===== */
+.contact{display:grid; gap:24px; grid-template-columns:1fr}
+@media (min-width:860px){ .contact{grid-template-columns:1.1fr .9fr; gap:40px} }
+.addr{font-size:17px; line-height:1.6; font-weight:500; max-width:32ch}
+.hours{margin-top:22px; border-top:1px solid var(--line)}
+.hours li{display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid var(--line); font-size:14.5px}
+.hours b{font-weight:600}
+.hours .num{color:var(--ink-2)}
+.areas{display:flex; flex-wrap:wrap; gap:7px; margin-top:14px}
+.areas li{font-size:13px; background:var(--surface-2); border:1px solid var(--line); padding:5px 11px; border-radius:999px; color:var(--ink-2)}
+
+/* ===== enquiry bar + sheet ===== */
+.enqbar{
+  position:fixed; left:0; right:0; bottom:0; z-index:50;
+  padding:12px 18px calc(12px + env(safe-area-inset-bottom,0px));
+  background:var(--bar-bg); color:var(--bar-ink);
+  display:flex; align-items:center; gap:14px; box-shadow:0 -6px 24px -10px rgba(0,0,0,.45);
+}
+.enqbar__n{font-family:var(--mono); font-size:14px; font-weight:600; margin-right:auto}
+.enqbar .btn--primary{background:var(--brand); color:var(--brand-ink)}
+.enqbar .btn--primary:hover{background:var(--brand-deep); color:var(--brand-ink)}
+.enqbar__clear{font-size:13.5px; color:color-mix(in srgb,var(--bar-ink) 72%,transparent); text-decoration:underline; text-underline-offset:3px}
+.enqbar__clear:hover{color:var(--bar-ink)}
+
+dialog.sheet{
+  border:0; padding:0; background:transparent; max-width:560px; width:calc(100% - 28px);
+  margin:auto; color:var(--ink);
+}
+dialog.sheet::backdrop{background:rgba(5,20,14,.55); backdrop-filter:blur(3px)}
+.sheet__in{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+.sheet__head{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 20px; border-bottom:1px solid var(--line)}
+.sheet__head h3{font-size:19px; font-weight:700}
+.sheet__close{padding:7px; border-radius:8px; color:var(--muted); line-height:0}
+.sheet__close:hover{background:var(--surface-2); color:var(--ink)}
+.sheet__body{padding:16px 20px; max-height:min(52vh,420px); overflow-y:auto}
+.sheet__foot{padding:16px 20px calc(16px + env(safe-area-inset-bottom,0px)); border-top:1px solid var(--line); background:var(--surface-2)}
+.sitem{display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px dashed var(--line)}
+.sitem:last-child{border-bottom:0}
+.sitem__t{flex:1; min-width:0}
+.sitem__t b{display:block; font-size:14.5px; font-weight:600; line-height:1.3}
+.sitem__t span{font-size:12.5px; color:var(--muted); font-family:var(--mono)}
+.field{display:block; margin-bottom:11px}
+.field span{display:block; font-size:12.5px; color:var(--muted); margin-bottom:5px; font-weight:500}
+.field input{
+  width:100%; padding:11px 13px; font-size:16px; color:var(--ink); background:var(--surface);
+  border:1.5px solid var(--line-strong); border-radius:10px;
+}
+.field input:focus{outline:none; border-color:var(--brand); box-shadow:0 0 0 3.5px var(--brand-soft)}
+.sheet__foot .btn{width:100%}
+.sheet__hint{font-size:12.5px; color:var(--muted); margin-top:10px; text-align:center}
+
+/* ===== footer ===== */
+footer{border-top:1px solid var(--line); background:var(--surface); margin-top:12px}
+.foot{display:grid; gap:20px; padding-block:30px}
+@media (min-width:760px){ .foot{grid-template-columns:1.4fr 1fr; gap:40px} }
+.foot p{font-size:13px; color:var(--muted); line-height:1.6}
+.foot .legal{border-top:1px solid var(--line); padding-top:16px; margin-top:4px; grid-column:1/-1; display:flex; flex-wrap:wrap; gap:6px 18px; justify-content:space-between}
+.foot .legal span{font-size:12.5px; color:var(--muted)}
+.disclaim{background:var(--amber-soft); border:1px solid color-mix(in srgb,var(--amber) 30%,transparent); border-radius:var(--radius-s); padding:13px 15px; font-size:13px; color:var(--ink-2); line-height:1.55}
+.disclaim b{color:var(--amber)}
+.padbottom{height:0}
+.padbottom.on{height:76px}
+</style>
+
+<header class="topbar">
+  <div class="wrap topbar__in">
+    <a class="brand" href="#top">
+      <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="var(--brand)"></rect>
+        <g fill="#fff">
+          <rect x="8.5"  y="9"  width="7.5" height="9" rx="3.75" opacity=".95"></rect>
+          <rect x="18.5" y="9"  width="7.5" height="9" rx="3.75" opacity=".95"></rect>
+          <rect x="28.5" y="9"  width="3"   height="9" rx="1.5"  opacity=".5"></rect>
+          <rect x="8.5"  y="22" width="7.5" height="9" rx="3.75" opacity=".95"></rect>
+          <rect x="18.5" y="22" width="7.5" height="9" rx="3.75" opacity=".6"></rect>
+          <rect x="28.5" y="22" width="3"   height="9" rx="1.5"  opacity=".5"></rect>
+        </g>
+      </svg>
+      <span>
+        <span class="brand__name" data-t="brandName">Ajay Pharma</span>
+        <span class="brand__sub" data-t="brandSub">Wholesale medicine distributor</span>
+      </span>
+    </a>
+
+    <nav class="nav">
+      <a href="#ratelist" data-t="navList">Rate list</a>
+      <a href="#companies" data-t="navCos">Companies</a>
+      <a href="#services" data-t="navSvc">Services</a>
+      <a href="#contact" data-t="navContact">Contact</a>
+    </nav>
+
+    <div class="langtog" role="group" aria-label="Language / भाषा">
+      <button type="button" id="lang-en" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" id="lang-hi" data-lang="hi" aria-pressed="false">हिं</button>
+    </div>
+
+    <a class="btn btn--primary btn--sm only-wide" id="hdr-call" href="#">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      <span data-t="callNow">Call now</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="wrap hero">
+    <div class="hero__grid">
+      <div>
+        <p class="eyebrow" id="hero-eyebrow">Birhana Road · Kanpur · Est. 1998</p>
+        <h1><span data-t="heroA">Kanpur's medicine counter for</span> <span class="tint" data-t="heroB">chemists, clinics &amp; hospitals</span></h1>
+        <p class="lede" data-t="heroLede">Wholesale supply of the full Cipla and Intas range, plus every fast-moving brand your shop needs — from Birhana Road, delivered across Kanpur the same day.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" id="hero-wa" href="#">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.2 8.2 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.48-.4-.42-.55-.43h-.47c-.16 0-.43.06-.65.31-.22.25-.85.84-.85 2.04s.87 2.37.99 2.53c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.05.14-1.16-.06-.1-.22-.16-.47-.28z"></path></svg>
+            <span data-t="ctaOrder">Order on WhatsApp</span>
+          </a>
+          <a class="btn btn--ghost" href="#ratelist" data-t="ctaList">See the rate list</a>
+        </div>
+        <ul class="hero__facts">
+          <li class="fact"><b id="fact-skus">34</b><span data-t="factSkus">brands in the live list</span></li>
+          <li class="fact"><b>2</b><span data-t="factCos">principal companies stocked</span></li>
+          <li class="fact"><b>6</b><span data-t="factArea">districts we deliver to</span></li>
+        </ul>
+      </div>
+
+      <aside class="counter">
+        <div class="counter__head">
+          <span class="eyebrow" data-t="counterTitle">Trade counter</span>
+          <span class="status" id="open-status"><span class="dot"></span><span data-t="openNow">Open now</span></span>
+        </div>
+        <dl class="counter__rows">
+          <div class="crow"><dt data-t="lblPrincipals">Principal companies</dt><dd>Cipla · Intas</dd></div>
+          <div class="crow"><dt data-t="lblLicence">Drug Licence</dt><dd class="num" id="val-licence">—</dd></div>
+          <div class="crow"><dt data-t="lblGst">GSTIN</dt><dd class="num" id="val-gst">—</dd></div>
+          <div class="crow"><dt data-t="lblBuyers">Supply to</dt><dd data-t="valBuyers">Licensed chemists, clinics, hospitals</dd></div>
+          <div class="crow"><dt data-t="lblDelivery">Kanpur city delivery</dt><dd data-t="valDelivery">Same day, order by 4 PM</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <!-- QUICK ACTIONS -->
+  <section class="wrap actions" aria-label="Quick contact">
+    <div class="actions__grid">
+      <a class="act" id="act-call" href="#">
+        <svg class="act__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="act__label" data-t="actCallL">Call the shop</span>
+        <span class="act__value" id="act-call-v">—</span>
+      </a>
+      <a class="act" id="act-wa" href="#">
+        <svg class="act__ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.2 8.2 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23z"></path></svg>
+        <span class="act__label" data-t="actWaL">WhatsApp order</span>
+        <span class="act__value" data-t="actWaV">Send your list</span>
+      </a>
+      <a class="act" id="act-map" href="#" target="_blank" rel="noopener">
+        <svg class="act__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <span class="act__label" data-t="actMapL">Shop address</span>
+        <span class="act__value" data-t="actMapV">Birhana Road, Kanpur</span>
+      </a>
+      <a class="act" href="#contact">
+        <svg class="act__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+        <span class="act__label" data-t="actHrL">Opening hours</span>
+        <span class="act__value" data-t="actHrV">Mon–Sat, 9:30 AM – 8 PM</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- RATE LIST -->
+  <section class="wrap sec" id="ratelist">
+    <div class="sec__head">
+      <div>
+        <p class="eyebrow" data-t="eyeList">Live stock list</p>
+        <h2 data-t="listTitle">Medicine rate list</h2>
+      </div>
+      <p class="sec__note" data-t="listNote">Prices shown are indicative MRP. Trade rates, scheme and margin are quoted on enquiry for licensed buyers.</p>
+    </div>
+
+    <div class="tools">
+      <label class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <input type="search" id="q" autocomplete="off" placeholder="Search by brand or salt — e.g. Montair, Paracetamol" aria-label="Search medicines">
+        <button type="button" class="search__clear" id="q-clear" aria-label="Clear search" hidden>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+        </button>
+      </label>
+      <div class="chips chips--co" id="co-chips" role="group" aria-label="Filter by company"></div>
+      <div class="chips chips--cat" id="cat-chips" role="group" aria-label="Filter by category"></div>
+    </div>
+
+    <p class="count" id="count" aria-live="polite">—</p>
+
+    <div class="list">
+      <div class="list__head" aria-hidden="true">
+        <span data-t="thMed">Medicine / Composition</span>
+        <span data-t="thCo">Company</span>
+        <span data-t="thPack">Pack</span>
+        <span data-t="thMrp">MRP</span>
+        <span style="text-align:right" data-t="thAdd">Enquiry</span>
+      </div>
+      <ul id="rows"></ul>
+    </div>
+  </section>
+
+  <!-- COMPANIES -->
+  <section class="wrap sec" id="companies">
+    <div class="sec__head">
+      <div>
+        <p class="eyebrow" data-t="eyeCos">What we stock</p>
+        <h2 data-t="cosTitle">Companies on our shelves</h2>
+      </div>
+    </div>
+    <div class="cos">
+      <article class="co-card co-card--lead">
+        <h3>Cipla <span class="pill" data-t="pillLead">Principal</span></h3>
+        <p data-t="ciplaP">Deep stock across the Cipla respiratory range — Asthalin, Foracort, Budecort, Duolin, Seroflo — along with Montair, Ciplox, Novamox and the full OTC line. Inhalers and respules are held in quantity through the season.</p>
+      </article>
+      <article class="co-card co-card--lead">
+        <h3>Intas <span class="pill" data-t="pillLead2">Principal</span></h3>
+        <p data-t="intasP">Regular supply of Intas cardiac, diabetic and pain management brands — Clopitab, Zoryl, Zoryl-M, Intagesic-MR, Nodosis and Intalith CR. Chronic-therapy items are reordered on a fixed weekly cycle.</p>
+      </article>
+      <article class="co-card" style="grid-column:1/-1">
+        <h3 data-t="otherCosTitle">Other brands we supply</h3>
+        <p data-t="otherCosP">Fast-moving brands stocked alongside our principal companies, so a chemist's whole order is filled from one counter.</p>
+        <ul class="co-more">
+          <li>Sun Pharma</li><li>Alkem</li><li>GSK</li><li>Sanofi</li><li>Torrent</li>
+          <li>Micro Labs</li><li>Apex Labs</li><li>Mankind</li><li>Zydus</li><li>Abbott</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="wrap sec" id="services">
+    <div class="sec__head">
+      <div>
+        <p class="eyebrow" data-t="eyeSvc">How we work</p>
+        <h2 data-t="svcTitle">Built for the chemist's day</h2>
+      </div>
+    </div>
+    <ul class="svc">
+      <li><span class="svc__n">01</span><h3 data-t="svc1T">Order by WhatsApp</h3><p data-t="svc1P">Pick items from the rate list and send the whole order to us in one message. No app, no login, no typing the list twice.</p></li>
+      <li><span class="svc__n">02</span><h3 data-t="svc2T">Same-day city delivery</h3><p data-t="svc2P">Orders confirmed before 4 PM reach shops inside Kanpur the same evening. Outstation parcels go by the next morning's transport.</p></li>
+      <li><span class="svc__n">03</span><h3 data-t="svc3T">Cold-chain handling</h3><p data-t="svc3P">Insulins, vaccines and other 2–8°C items are stored in monitored refrigeration and moved in insulated boxes with ice packs.</p></li>
+      <li><span class="svc__n">04</span><h3 data-t="svc4T">Genuine stock, full papers</h3><p data-t="svc4P">Every consignment comes from the company depot or authorised C&amp;F, with batch number, expiry and a GST invoice on each bill.</p></li>
+      <li><span class="svc__n">05</span><h3 data-t="svc5T">Expiry &amp; breakage support</h3><p data-t="svc5P">Near-expiry stock is taken back on the company's standard terms and credited against your next purchase.</p></li>
+      <li><span class="svc__n">06</span><h3 data-t="svc6T">Institutional supply</h3><p data-t="svc6P">Rate contracts and scheduled monthly supply for nursing homes, hospitals and clinics, with consolidated monthly billing.</p></li>
+    </ul>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="wrap sec" id="contact">
+    <div class="sec__head">
+      <div>
+        <p class="eyebrow" data-t="eyeContact">Come to the counter</p>
+        <h2 data-t="contactTitle">Visit or call us</h2>
+      </div>
+    </div>
+    <div class="contact">
+      <div>
+        <p class="eyebrow" data-t="lblAddress">Address</p>
+        <p class="addr" id="val-address">—</p>
+        <a class="btn btn--ghost btn--sm" id="c-map" href="#" target="_blank" rel="noopener" style="margin-top:14px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span data-t="getDirections">Get directions</span>
+        </a>
+        <ul class="hours" id="hours-list"></ul>
+      </div>
+      <div>
+        <p class="eyebrow" data-t="lblReach">Reach us</p>
+        <ul class="hours" style="margin-top:8px; border-top:0">
+          <li><b data-t="lblPhone">Phone</b><a class="num" id="c-phone" href="#" style="text-decoration:none; color:var(--brand); font-weight:600">—</a></li>
+          <li><b data-t="lblWa">WhatsApp</b><a class="num" id="c-wa" href="#" style="text-decoration:none; color:var(--brand); font-weight:600" data-t="waOrder">Send order</a></li>
+          <li><b data-t="lblEmail">Email</b><a class="num" id="c-email" href="#" style="text-decoration:none; color:var(--brand); font-weight:600">—</a></li>
+        </ul>
+        <p class="eyebrow" style="margin-top:24px" data-t="lblAreas">We deliver to</p>
+        <ul class="areas" id="areas-list"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-bottom:34px">
+    <p class="disclaim"><b data-t="discTitle">Please note.</b> <span data-t="discBody">Ajay Pharma is a wholesale distributor. Schedule H and H1 medicines are supplied only to buyers holding a valid drug licence, and are dispensed to patients only against a registered medical practitioner's prescription. This website is a product listing, not medical advice — always consult a doctor before taking any medicine.</span></p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <p style="font-family:var(--display); font-weight:800; font-size:19px; color:var(--ink); letter-spacing:-.02em" data-t="brandName">Ajay Pharma</p>
+      <p style="margin-top:8px" data-t="footP">Wholesale pharmaceutical distributor serving chemists, clinics and hospitals across Kanpur and Uttar Pradesh.</p>
+    </div>
+    <div>
+      <p class="eyebrow" data-t="lblLicence">Drug Licence</p>
+      <p class="num" id="foot-licence" style="color:var(--ink-2)">—</p>
+      <p class="eyebrow" style="margin-top:12px" data-t="lblGst">GSTIN</p>
+      <p class="num" id="foot-gst" style="color:var(--ink-2)">—</p>
+    </div>
+    <div class="legal">
+      <span id="foot-copy">© Ajay Pharma, Kanpur</span>
+      <span data-t="footRights">All brand names are the property of their respective manufacturers.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="padbottom" id="padbottom"></div>
+
+<div class="enqbar" id="enqbar" hidden>
+  <span class="enqbar__n" id="enqbar-n">0</span>
+  <button type="button" class="enqbar__clear" id="enqbar-clear" data-t="clear">Clear</button>
+  <button type="button" class="btn btn--primary btn--sm" id="enqbar-open" data-t="reviewSend">Review &amp; send</button>
+</div>
+
+<dialog class="sheet" id="sheet">
+  <div class="sheet__in">
+    <div class="sheet__head">
+      <h3 data-t="sheetTitle">Your enquiry list</h3>
+      <button type="button" class="sheet__close" id="sheet-close" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+      </button>
+    </div>
+    <div class="sheet__body">
+      <ul id="sheet-items"></ul>
+      <div style="margin-top:18px; padding-top:16px; border-top:1px solid var(--line)">
+        <label class="field" for="buyer-shop"><span data-t="fldShop">Shop / clinic name</span><input id="buyer-shop" type="text" autocomplete="organization"></label>
+        <label class="field" for="buyer-phone"><span data-t="fldPhone">Your phone number</span><input id="buyer-phone" type="tel" inputmode="tel" autocomplete="tel"></label>
+      </div>
+    </div>
+    <div class="sheet__foot">
+      <a class="btn btn--primary" id="sheet-send" href="#" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.2 8.2 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23z"></path></svg>
+        <span data-t="sendWa">Send on WhatsApp</span>
+      </a>
+      <p class="sheet__hint" data-t="sheetHint">Opens WhatsApp with your list already written out. Nothing is sent until you press send there.</p>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* eslint-disable */
+(function () {
+  "use strict";
+
+  var BUSINESS   = {"name":{"en":"Ajay Pharma","hi":"अजय फार्मा"},"tagline":{"en":"Wholesale medicine distributor","hi":"थोक दवा वितरक"},"established":"1998","address":{"en":"59/105, Canal Road, Birhana Road, Kanpur - 208001, Uttar Pradesh","hi":"59/105, कैनाल रोड, बिरहाना रोड, कानपुर - 208001, उत्तर प्रदेश"},"city":{"en":"Kanpur","hi":"कानपुर"},"mapsQuery":"Ajay Pharma, 59/105 Canal Road, Birhana Road, Kanpur 208001","phoneDisplay":"+91 00000 00000","phoneDial":"+910000000000","whatsapp":"910000000000","email":"orders@ajaypharma.example","drugLicence":"UP/KNP/20B-00000, 21B-00000","gstin":"09XXXXXXXXXXXZX","hours":[{"days":{"en":"Monday - Saturday","hi":"सोमवार - शनिवार"},"time":"9:30 AM - 8:00 PM","open":true},{"days":{"en":"Sunday","hi":"रविवार"},"time":{"en":"Closed","hi":"बंद"},"open":false}],"deliveryAreas":{"en":["Kanpur Nagar","Kanpur Dehat","Unnao","Fatehpur","Kannauj","Lucknow"],"hi":["कानपुर नगर","कानपुर देहात","उन्नाव","फतेहपुर","कन्नौज","लखनऊ"]}};
+  var CATEGORIES = [{"id":"respiratory","en":"Respiratory","hi":"श्वास एवं दमा"},{"id":"allergy","en":"Allergy","hi":"एलर्जी"},{"id":"antibiotic","en":"Antibiotic","hi":"एंटीबायोटिक"},{"id":"pain","en":"Pain Relief","hi":"दर्द निवारक"},{"id":"diabetes","en":"Diabetes","hi":"मधुमेह"},{"id":"cardiac","en":"Cardiac","hi":"हृदय रोग"},{"id":"gastro","en":"Gastro","hi":"पेट एवं एसिडिटी"},{"id":"vitamins","en":"Vitamins","hi":"विटामिन"},{"id":"skin","en":"Skin & Antiseptic","hi":"त्वचा एवं एंटीसेप्टिक"},{"id":"general","en":"General","hi":"सामान्य"}];
+  var MEDICINES  = [{"id":"cip-asthalin-inh","company":"Cipla","name":"Asthalin 100mcg Inhaler","nameHi":"एस्थालिन 100mcg इन्हेलर","composition":"Salbutamol 100mcg","compositionHi":"साल्बुटामोल 100mcg","form":"Inhaler","pack":"200 MDI","mrp":129.5,"schedule":"H","category":"respiratory","stock":"in"},{"id":"cip-foracort-200","company":"Cipla","name":"Foracort 200 Inhaler","nameHi":"फोराकोर्ट 200 इन्हेलर","composition":"Formoterol 6mcg + Budesonide 200mcg","compositionHi":"फॉर्मोटेरोल 6mcg + बुडेसोनाइड 200mcg","form":"Inhaler","pack":"120 MDI","mrp":492,"schedule":"H","category":"respiratory","stock":"in"},{"id":"cip-budecort-200","company":"Cipla","name":"Budecort 200 Inhaler","nameHi":"बुडेकोर्ट 200 इन्हेलर","composition":"Budesonide 200mcg","compositionHi":"बुडेसोनाइड 200mcg","form":"Inhaler","pack":"200 MDI","mrp":520,"schedule":"H","category":"respiratory","stock":"in"},{"id":"cip-duolin-resp","company":"Cipla","name":"Duolin Respules 2.5ml","nameHi":"डुओलिन रेस्प्यूल्स 2.5ml","composition":"Levosalbutamol 1.25mg + Ipratropium 500mcg","compositionHi":"लेवोसाल्बुटामोल 1.25mg + इप्राट्रोपियम 500mcg","form":"Respules","pack":"5 x 2.5ml","mrp":100,"schedule":"H","category":"respiratory","stock":"in"},{"id":"cip-seroflo-250","company":"Cipla","name":"Seroflo 250 Inhaler","nameHi":"सेरोफ्लो 250 इन्हेलर","composition":"Salmeterol 25mcg + Fluticasone 250mcg","compositionHi":"साल्मेटेरोल 25mcg + फ्लूटिकासोन 250mcg","form":"Inhaler","pack":"120 MDI","mrp":650,"schedule":"H","category":"respiratory","stock":"order"},{"id":"cip-mucinac-600","company":"Cipla","name":"Mucinac 600 Effervescent","nameHi":"म्यूसिनैक 600 इफ़रवेसेंट","composition":"Acetylcysteine 600mg","compositionHi":"एसिटाइलसिस्टीन 600mg","form":"Effervescent Tablet","pack":"10 Tablets","mrp":210,"schedule":"H","category":"respiratory","stock":"in"},{"id":"cip-cofsils-loz","company":"Cipla","name":"Cofsils Lozenges","nameHi":"कॉफ़सिल्स लोज़ेंजेस","composition":"Amylmetacresol + Dichlorobenzyl Alcohol","compositionHi":"एमाइलमेटाक्रेसोल + डाइक्लोरोबेंज़िल अल्कोहल","form":"Lozenges","pack":"10 Lozenges","mrp":42,"schedule":"OTC","category":"respiratory","stock":"in"},{"id":"cip-montair-10","company":"Cipla","name":"Montair 10 Tablet","nameHi":"मॉन्टेयर 10 टैबलेट","composition":"Montelukast 10mg","compositionHi":"मोंटेलुकास्ट 10mg","form":"Tablet","pack":"10 Tablets","mrp":212,"schedule":"H","category":"allergy","stock":"in"},{"id":"cip-montair-lc","company":"Cipla","name":"Montair-LC Tablet","nameHi":"मॉन्टेयर-एलसी टैबलेट","composition":"Montelukast 10mg + Levocetirizine 5mg","compositionHi":"मोंटेलुकास्ट 10mg + लेवोसेटिरिज़िन 5mg","form":"Tablet","pack":"10 Tablets","mrp":235,"schedule":"H","category":"allergy","stock":"in"},{"id":"cip-okacet","company":"Cipla","name":"Okacet Tablet","nameHi":"ओकासेट टैबलेट","composition":"Cetirizine 10mg","compositionHi":"सेटिरिज़िन 10mg","form":"Tablet","pack":"10 Tablets","mrp":34,"schedule":"OTC","category":"allergy","stock":"in"},{"id":"cip-ciplox-500","company":"Cipla","name":"Ciplox 500 Tablet","nameHi":"सिप्लॉक्स 500 टैबलेट","composition":"Ciprofloxacin 500mg","compositionHi":"सिप्रोफ्लोक्सासिन 500mg","form":"Tablet","pack":"10 Tablets","mrp":87,"schedule":"H","category":"antibiotic","stock":"in"},{"id":"cip-ciplox-tz","company":"Cipla","name":"Ciplox-TZ Tablet","nameHi":"सिप्लॉक्स-टीज़ेड टैबलेट","composition":"Ciprofloxacin 500mg + Tinidazole 600mg","compositionHi":"सिप्रोफ्लोक्सासिन 500mg + टिनिडाज़ोल 600mg","form":"Tablet","pack":"10 Tablets","mrp":127,"schedule":"H","category":"antibiotic","stock":"in"},{"id":"cip-novamox-500","company":"Cipla","name":"Novamox 500 Capsule","nameHi":"नोवामॉक्स 500 कैप्सूल","composition":"Amoxicillin 500mg","compositionHi":"एमोक्सिसिलिन 500mg","form":"Capsule","pack":"10 Capsules","mrp":99,"schedule":"H","category":"antibiotic","stock":"in"},{"id":"cip-emeset-4","company":"Cipla","name":"Emeset 4 Tablet","nameHi":"एमेसेट 4 टैबलेट","composition":"Ondansetron 4mg","compositionHi":"ऑनडेनसेट्रॉन 4mg","form":"Tablet","pack":"10 Tablets","mrp":62,"schedule":"H","category":"gastro","stock":"in"},{"id":"cip-omnacortil-10","company":"Cipla","name":"Omnacortil 10 Tablet","nameHi":"ओमनाकोर्टिल 10 टैबलेट","composition":"Prednisolone 10mg","compositionHi":"प्रेडनिसोलोन 10mg","form":"Tablet","pack":"10 Tablets","mrp":52,"schedule":"H","category":"general","stock":"in"},{"id":"cip-urimax-04","company":"Cipla","name":"Urimax 0.4 Capsule","nameHi":"यूरीमैक्स 0.4 कैप्सूल","composition":"Tamsulosin 0.4mg","compositionHi":"टैम्सुलोसिन 0.4mg","form":"Capsule","pack":"10 Capsules","mrp":235,"schedule":"H","category":"general","stock":"in"},{"id":"cip-prolomet-xl25","company":"Cipla","name":"Prolomet XL 25 Tablet","nameHi":"प्रोलोमेट एक्सएल 25 टैबलेट","composition":"Metoprolol Succinate 25mg","compositionHi":"मेटोप्रोलोल सक्सिनेट 25mg","form":"Tablet","pack":"10 Tablets","mrp":85,"schedule":"H","category":"cardiac","stock":"in"},{"id":"cip-cipladine-oint","company":"Cipla","name":"Cipladine Ointment 5%","nameHi":"सिप्लाडीन ऑइंटमेंट 5%","composition":"Povidone Iodine 5%","compositionHi":"पोविडोन आयोडीन 5%","form":"Ointment","pack":"15 g","mrp":48,"schedule":"OTC","category":"skin","stock":"in"},{"id":"cip-nicotex-2","company":"Cipla","name":"Nicotex 2mg Chewing Gum","nameHi":"निकोटेक्स 2mg च्युइंग गम","composition":"Nicotine 2mg","compositionHi":"निकोटीन 2mg","form":"Chewing Gum","pack":"9 Gums","mrp":99,"schedule":"OTC","category":"general","stock":"in"},{"id":"int-intagesic-mr","company":"Intas","name":"Intagesic-MR Tablet","nameHi":"इंटाजेसिक-एमआर टैबलेट","composition":"Diclofenac 50mg + Paracetamol 325mg + Chlorzoxazone 250mg","compositionHi":"डाइक्लोफेनाक 50mg + पैरासिटामोल 325mg + क्लोरज़ॉक्साज़ोन 250mg","form":"Tablet","pack":"10 Tablets","mrp":104,"schedule":"H","category":"pain","stock":"in"},{"id":"int-zoryl-2","company":"Intas","name":"Zoryl 2 Tablet","nameHi":"ज़ोरिल 2 टैबलेट","composition":"Glimepiride 2mg","compositionHi":"ग्लिमेपिराइड 2mg","form":"Tablet","pack":"10 Tablets","mrp":127,"schedule":"H","category":"diabetes","stock":"in"},{"id":"int-zoryl-m2","company":"Intas","name":"Zoryl-M 2 Tablet","nameHi":"ज़ोरिल-एम 2 टैबलेट","composition":"Glimepiride 2mg + Metformin 500mg","compositionHi":"ग्लिमेपिराइड 2mg + मेटफॉर्मिन 500mg","form":"Tablet","pack":"10 Tablets","mrp":158,"schedule":"H","category":"diabetes","stock":"in"},{"id":"int-nodosis-500","company":"Intas","name":"Nodosis 500 Tablet","nameHi":"नोडोसिस 500 टैबलेट","composition":"Sodium Bicarbonate 500mg","compositionHi":"सोडियम बाइकार्बोनेट 500mg","form":"Tablet","pack":"15 Tablets","mrp":112,"schedule":"H","category":"gastro","stock":"in"},{"id":"int-clopitab-75","company":"Intas","name":"Clopitab 75 Tablet","nameHi":"क्लोपिटैब 75 टैबलेट","composition":"Clopidogrel 75mg","compositionHi":"क्लोपिडोग्रेल 75mg","form":"Tablet","pack":"10 Tablets","mrp":96,"schedule":"H","category":"cardiac","stock":"in"},{"id":"int-clopitab-a75","company":"Intas","name":"Clopitab-A 75 Tablet","nameHi":"क्लोपिटैब-ए 75 टैबलेट","composition":"Clopidogrel 75mg + Aspirin 75mg","compositionHi":"क्लोपिडोग्रेल 75mg + एस्पिरिन 75mg","form":"Tablet","pack":"10 Tablets","mrp":104,"schedule":"H","category":"cardiac","stock":"in"},{"id":"int-intalith-cr450","company":"Intas","name":"Intalith CR 450 Tablet","nameHi":"इंटालिथ सीआर 450 टैबलेट","composition":"Lithium Carbonate 450mg","compositionHi":"लिथियम कार्बोनेट 450mg","form":"Tablet","pack":"10 Tablets","mrp":118,"schedule":"H","category":"general","stock":"order"},{"id":"oth-dolo-650","company":"Micro Labs","name":"Dolo 650 Tablet","nameHi":"डोलो 650 टैबलेट","composition":"Paracetamol 650mg","compositionHi":"पैरासिटामोल 650mg","form":"Tablet","pack":"15 Tablets","mrp":34.5,"schedule":"OTC","category":"pain","stock":"in"},{"id":"oth-combiflam","company":"Sanofi","name":"Combiflam Tablet","nameHi":"कॉम्बिफ्लेम टैबलेट","composition":"Ibuprofen 400mg + Paracetamol 325mg","compositionHi":"इबुप्रोफेन 400mg + पैरासिटामोल 325mg","form":"Tablet","pack":"20 Tablets","mrp":58,"schedule":"OTC","category":"pain","stock":"in"},{"id":"oth-volini-gel","company":"Sun Pharma","name":"Volini Gel","nameHi":"वोलिनी जेल","composition":"Diclofenac Diethylamine + Methyl Salicylate","compositionHi":"डाइक्लोफेनाक डाइएथाइलएमीन + मिथाइल सैलिसिलेट","form":"Gel","pack":"30 g","mrp":135,"schedule":"OTC","category":"pain","stock":"in"},{"id":"oth-pan-40","company":"Alkem","name":"Pan 40 Tablet","nameHi":"पैन 40 टैबलेट","composition":"Pantoprazole 40mg","compositionHi":"पैंटोप्राज़ोल 40mg","form":"Tablet","pack":"15 Tablets","mrp":184,"schedule":"H","category":"gastro","stock":"in"},{"id":"oth-augmentin-625","company":"GSK","name":"Augmentin 625 Duo Tablet","nameHi":"ऑगमेंटिन 625 ड्यूो टैबलेट","composition":"Amoxicillin 500mg + Clavulanic Acid 125mg","compositionHi":"एमोक्सिसिलिन 500mg + क्लैवुलैनिक एसिड 125mg","form":"Tablet","pack":"10 Tablets","mrp":223,"schedule":"H","category":"antibiotic","stock":"in"},{"id":"oth-allegra-120","company":"Sanofi","name":"Allegra 120 Tablet","nameHi":"एलेग्रा 120 टैबलेट","composition":"Fexofenadine 120mg","compositionHi":"फेक्सोफेनाडाइन 120mg","form":"Tablet","pack":"10 Tablets","mrp":220,"schedule":"H","category":"allergy","stock":"in"},{"id":"oth-shelcal-500","company":"Torrent","name":"Shelcal 500 Tablet","nameHi":"शेल्कल 500 टैबलेट","composition":"Calcium Carbonate 500mg + Vitamin D3 250 IU","compositionHi":"कैल्शियम कार्बोनेट 500mg + विटामिन डी3 250 IU","form":"Tablet","pack":"15 Tablets","mrp":128,"schedule":"OTC","category":"vitamins","stock":"in"},{"id":"oth-zincovit","company":"Apex Labs","name":"Zincovit Tablet","nameHi":"ज़िंकोविट टैबलेट","composition":"Multivitamin + Multimineral + Zinc","compositionHi":"मल्टीविटामिन + मल्टीमिनरल + ज़िंक","form":"Tablet","pack":"15 Tablets","mrp":108,"schedule":"OTC","category":"vitamins","stock":"in"}];
+
+  /* ---------- i18n ---------- */
+  var STR = {
+    en: {
+      brandName:"Ajay Pharma", brandSub:"Wholesale medicine distributor",
+      navList:"Rate list", navCos:"Companies", navSvc:"Services", navContact:"Contact",
+      callNow:"Call now",
+      heroA:"Kanpur's medicine counter for", heroB:"chemists, clinics & hospitals",
+      heroLede:"Wholesale supply of the full Cipla and Intas range, plus every fast-moving brand your shop needs — from Birhana Road, delivered across Kanpur the same day.",
+      ctaOrder:"Order on WhatsApp", ctaList:"See the rate list",
+      factSkus:"brands in the live list", factCos:"principal companies stocked", factArea:"districts we deliver to",
+      counterTitle:"Trade counter", openNow:"Open now", closedNow:"Closed now",
+      lblPrincipals:"Principal companies", lblLicence:"Drug Licence", lblGst:"GSTIN",
+      lblBuyers:"Supply to", valBuyers:"Licensed chemists, clinics, hospitals",
+      lblDelivery:"Kanpur city delivery", valDelivery:"Same day, order by 4 PM",
+      actCallL:"Call the shop", actWaL:"WhatsApp order", actWaV:"Send your list",
+      actMapL:"Shop address", actMapV:"Birhana Road, Kanpur",
+      actHrL:"Opening hours", actHrV:"Mon–Sat, 9:30 AM – 8 PM",
+      eyeList:"Live stock list", listTitle:"Medicine rate list",
+      listNote:"Prices shown are indicative MRP. Trade rates, scheme and margin are quoted on enquiry for licensed buyers.",
+      searchPh:"Search by brand or salt — e.g. Montair, Paracetamol",
+      thMed:"Medicine / Composition", thCo:"Company", thPack:"Pack", thMrp:"MRP", thAdd:"Enquiry",
+      allCos:"All companies", allCats:"All categories",
+      add:"Add", inStock:"In stock", onOrder:"On order",
+      emptyT:"No medicine matched", emptyP:"Try a shorter word, or the salt name instead of the brand. We stock far more than this list — call us and ask.",
+      showing:"Showing {n} of {t} medicines",
+      eyeCos:"What we stock", cosTitle:"Companies on our shelves", pillLead:"Principal", pillLead2:"Principal",
+      ciplaP:"Deep stock across the Cipla respiratory range — Asthalin, Foracort, Budecort, Duolin, Seroflo — along with Montair, Ciplox, Novamox and the full OTC line. Inhalers and respules are held in quantity through the season.",
+      intasP:"Regular supply of Intas cardiac, diabetic and pain management brands — Clopitab, Zoryl, Zoryl-M, Intagesic-MR, Nodosis and Intalith CR. Chronic-therapy items are reordered on a fixed weekly cycle.",
+      otherCosTitle:"Other brands we supply",
+      otherCosP:"Fast-moving brands stocked alongside our principal companies, so a chemist's whole order is filled from one counter.",
+      eyeSvc:"How we work", svcTitle:"Built for the chemist's day",
+      svc1T:"Order by WhatsApp", svc1P:"Pick items from the rate list and send the whole order to us in one message. No app, no login, no typing the list twice.",
+      svc2T:"Same-day city delivery", svc2P:"Orders confirmed before 4 PM reach shops inside Kanpur the same evening. Outstation parcels go by the next morning's transport.",
+      svc3T:"Cold-chain handling", svc3P:"Insulins, vaccines and other 2–8°C items are stored in monitored refrigeration and moved in insulated boxes with ice packs.",
+      svc4T:"Genuine stock, full papers", svc4P:"Every consignment comes from the company depot or authorised C&F, with batch number, expiry and a GST invoice on each bill.",
+      svc5T:"Expiry & breakage support", svc5P:"Near-expiry stock is taken back on the company's standard terms and credited against your next purchase.",
+      svc6T:"Institutional supply", svc6P:"Rate contracts and scheduled monthly supply for nursing homes, hospitals and clinics, with consolidated monthly billing.",
+      eyeContact:"Come to the counter", contactTitle:"Visit or call us",
+      lblAddress:"Address", getDirections:"Get directions", lblReach:"Reach us",
+      lblPhone:"Phone", lblWa:"WhatsApp", waOrder:"Send order", lblEmail:"Email", lblAreas:"We deliver to",
+      discTitle:"Please note.",
+      discBody:"Ajay Pharma is a wholesale distributor. Schedule H and H1 medicines are supplied only to buyers holding a valid drug licence, and are dispensed to patients only against a registered medical practitioner's prescription. This website is a product listing, not medical advice — always consult a doctor before taking any medicine.",
+      footP:"Wholesale pharmaceutical distributor serving chemists, clinics and hospitals across Kanpur and Uttar Pradesh.",
+      footRights:"All brand names are the property of their respective manufacturers.",
+      clear:"Clear", reviewSend:"Review & send", sheetTitle:"Your enquiry list",
+      fldShop:"Shop / clinic name", fldPhone:"Your phone number", sendWa:"Send on WhatsApp",
+      sheetHint:"Opens WhatsApp with your list already written out. Nothing is sent until you press send there.",
+      itemsN:"{n} item", itemsNp:"{n} items", emptyCart:"Your list is empty. Add medicines from the rate list.",
+      waHead:"Ajay Pharma — Order enquiry", waShop:"Shop", waPhone:"Phone", waTotal:"Total items"
+    },
+    hi: {
+      brandName:"अजय फार्मा", brandSub:"थोक दवा वितरक",
+      navList:"रेट लिस्ट", navCos:"कंपनियाँ", navSvc:"सेवाएँ", navContact:"संपर्क",
+      callNow:"अभी कॉल करें",
+      heroA:"कानपुर का दवा काउंटर —", heroB:"केमिस्ट, क्लिनिक और अस्पतालों के लिए",
+      heroLede:"सिप्ला और इंटास की पूरी रेंज, साथ में हर तेज़ चलने वाला ब्रांड — बिरहाना रोड से, कानपुर भर में उसी दिन डिलीवरी।",
+      ctaOrder:"व्हाट्सएप पर ऑर्डर करें", ctaList:"रेट लिस्ट देखें",
+      factSkus:"ब्रांड लिस्ट में उपलब्ध", factCos:"मुख्य कंपनियाँ", factArea:"ज़िलों में डिलीवरी",
+      counterTitle:"ट्रेड काउंटर", openNow:"अभी खुला है", closedNow:"अभी बंद है",
+      lblPrincipals:"मुख्य कंपनियाँ", lblLicence:"ड्रग लाइसेंस", lblGst:"जीएसटीआईएन",
+      lblBuyers:"किसे सप्लाई", valBuyers:"लाइसेंसधारी केमिस्ट, क्लिनिक, अस्पताल",
+      lblDelivery:"कानपुर शहर डिलीवरी", valDelivery:"उसी दिन, शाम 4 बजे तक ऑर्डर करें",
+      actCallL:"दुकान पर कॉल करें", actWaL:"व्हाट्सएप ऑर्डर", actWaV:"अपनी लिस्ट भेजें",
+      actMapL:"दुकान का पता", actMapV:"बिरहाना रोड, कानपुर",
+      actHrL:"खुलने का समय", actHrV:"सोम–शनि, सुबह 9:30 – रात 8",
+      eyeList:"मौजूदा स्टॉक", listTitle:"दवाइयों की रेट लिस्ट",
+      listNote:"दिखाए गए दाम अनुमानित एम.आर.पी. हैं। ट्रेड रेट, स्कीम और मार्जिन लाइसेंसधारी खरीदारों को पूछताछ पर बताए जाते हैं।",
+      searchPh:"ब्रांड या साल्ट से खोजें — जैसे मॉन्टेयर, पैरासिटामोल",
+      thMed:"दवा / संघटन", thCo:"कंपनी", thPack:"पैक", thMrp:"एम.आर.पी.", thAdd:"पूछताछ",
+      allCos:"सभी कंपनियाँ", allCats:"सभी श्रेणियाँ",
+      add:"जोड़ें", inStock:"स्टॉक में", onOrder:"ऑर्डर पर",
+      emptyT:"कोई दवा नहीं मिली", emptyP:"छोटा शब्द लिखकर देखें, या ब्रांड की जगह साल्ट का नाम लिखें। हमारे पास इस लिस्ट से कहीं ज़्यादा स्टॉक है — कॉल करके पूछ लें।",
+      showing:"{t} में से {n} दवाइयाँ",
+      eyeCos:"हमारा स्टॉक", cosTitle:"हमारी शेल्फ़ की कंपनियाँ", pillLead:"मुख्य", pillLead2:"मुख्य",
+      ciplaP:"सिप्ला की श्वास-रोग रेंज का गहरा स्टॉक — एस्थालिन, फोराकोर्ट, बुडेकोर्ट, डुओलिन, सेरोफ्लो — साथ में मॉन्टेयर, सिप्लॉक्स, नोवामॉक्स और पूरी ओ.टी.सी. लाइन। इन्हेलर और रेस्प्यूल्स सीज़न भर मात्रा में रखे जाते हैं।",
+      intasP:"इंटास के हृदय, मधुमेह और दर्द निवारक ब्रांडों की नियमित सप्लाई — क्लोपिटैब, ज़ोरिल, ज़ोरिल-एम, इंटाजेसिक-एमआर, नोडोसिस और इंटालिथ सीआर। लंबी चलने वाली दवाइयाँ हर हफ़्ते तय चक्र में मँगाई जाती हैं।",
+      otherCosTitle:"अन्य कंपनियाँ जो हम देते हैं",
+      otherCosP:"मुख्य कंपनियों के साथ-साथ तेज़ चलने वाले ब्रांड भी रखे जाते हैं, ताकि केमिस्ट का पूरा ऑर्डर एक ही काउंटर से पूरा हो जाए।",
+      eyeSvc:"हम कैसे काम करते हैं", svcTitle:"केमिस्ट की रोज़ की ज़रूरत के हिसाब से",
+      svc1T:"व्हाट्सएप पर ऑर्डर", svc1P:"रेट लिस्ट से दवाइयाँ चुनिए और पूरा ऑर्डर एक ही मैसेज में भेज दीजिए। न ऐप, न लॉगिन, न दोबारा लिस्ट लिखने का झंझट।",
+      svc2T:"उसी दिन शहर में डिलीवरी", svc2P:"शाम 4 बजे तक पक्के हुए ऑर्डर कानपुर शहर की दुकानों पर उसी शाम पहुँच जाते हैं। बाहर के पार्सल अगली सुबह की ट्रांसपोर्ट से।",
+      svc3T:"कोल्ड-चेन व्यवस्था", svc3P:"इंसुलिन, वैक्सीन और 2–8°C वाली दवाइयाँ मॉनिटर की गई रेफ़्रिजरेशन में रखी जाती हैं और आइस पैक वाले इंसुलेटेड बॉक्स में भेजी जाती हैं।",
+      svc4T:"असली स्टॉक, पूरे कागज़", svc4P:"हर खेप कंपनी डिपो या अधिकृत सी-एंड-एफ से आती है — हर बिल पर बैच नंबर, एक्सपायरी और जी.एस.टी. इनवॉइस।",
+      svc5T:"एक्सपायरी और टूट-फूट सहायता", svc5P:"एक्सपायरी के नज़दीक स्टॉक कंपनी की तय शर्तों पर वापस लिया जाता है और अगली खरीद में क्रेडिट कर दिया जाता है।",
+      svc6T:"संस्थागत सप्लाई", svc6P:"नर्सिंग होम, अस्पताल और क्लिनिक के लिए रेट कॉन्ट्रैक्ट और हर महीने तय सप्लाई, एक साथ मासिक बिलिंग के साथ।",
+      eyeContact:"काउंटर पर आइए", contactTitle:"मिलिए या कॉल कीजिए",
+      lblAddress:"पता", getDirections:"रास्ता देखें", lblReach:"हमसे संपर्क",
+      lblPhone:"फ़ोन", lblWa:"व्हाट्सएप", waOrder:"ऑर्डर भेजें", lblEmail:"ईमेल", lblAreas:"डिलीवरी क्षेत्र",
+      discTitle:"ध्यान दें।",
+      discBody:"अजय फार्मा एक थोक वितरक है। शेड्यूल H और H1 दवाइयाँ केवल वैध ड्रग लाइसेंस रखने वाले खरीदारों को दी जाती हैं, और मरीज़ों को केवल पंजीकृत डॉक्टर की पर्ची पर ही दी जाती हैं। यह वेबसाइट सिर्फ़ दवाइयों की सूची है, चिकित्सकीय सलाह नहीं — कोई भी दवा लेने से पहले डॉक्टर से ज़रूर पूछें।",
+      footP:"कानपुर और उत्तर प्रदेश भर के केमिस्ट, क्लिनिक और अस्पतालों को सेवा देने वाला थोक दवा वितरक।",
+      footRights:"सभी ब्रांड नाम अपनी-अपनी निर्माता कंपनियों की संपत्ति हैं।",
+      clear:"खाली करें", reviewSend:"देखें और भेजें", sheetTitle:"आपकी पूछताछ सूची",
+      fldShop:"दुकान / क्लिनिक का नाम", fldPhone:"आपका फ़ोन नंबर", sendWa:"व्हाट्सएप पर भेजें",
+      sheetHint:"व्हाट्सएप आपकी पूरी लिस्ट लिखी हुई खुलेगा। जब तक आप वहाँ भेजें नहीं दबाते, कुछ नहीं जाता।",
+      itemsN:"{n} दवा", itemsNp:"{n} दवाइयाँ", emptyCart:"आपकी सूची खाली है। रेट लिस्ट से दवाइयाँ जोड़िए।",
+      waHead:"अजय फार्मा — ऑर्डर पूछताछ", waShop:"दुकान", waPhone:"फ़ोन", waTotal:"कुल आइटम"
+    }
+  };
+
+  var lang = "en";
+  var t = function (k) { return (STR[lang] && STR[lang][k]) || STR.en[k] || k; };
+
+  /* ---------- safe storage ---------- */
+  var store = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
+
+  var $ = function (s) { return document.querySelector(s); };
+  var money = function (n) {
+    return "₹" + n.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
+
+  /* ---------- state ---------- */
+  var filters = { q: "", co: "", cat: "" };
+  var cart = {};
+  try {
+    var saved = JSON.parse(store.get("ap_cart") || "{}");
+    if (saved && typeof saved === "object") cart = saved;
+  } catch (e) { cart = {}; }
+
+  var companies = (function () {
+    var seen = [];
+    MEDICINES.forEach(function (m) { if (seen.indexOf(m.company) === -1) seen.push(m.company); });
+    var lead = ["Cipla", "Intas"];
+    return lead.filter(function (c) { return seen.indexOf(c) > -1; })
+      .concat(seen.filter(function (c) { return lead.indexOf(c) === -1; }).sort());
+  })();
+
+  /* ---------- static wiring from business.json ---------- */
+  var telHref = "tel:" + BUSINESS.phoneDial;
+  var mapHref = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(BUSINESS.mapsQuery);
+  var waBase  = "https://wa.me/" + BUSINESS.whatsapp;
+
+  function setHref(id, href) { var el = $(id); if (el) el.setAttribute("href", href); }
+  setHref("#hdr-call", telHref);
+  setHref("#act-call", telHref);
+  setHref("#c-phone", telHref);
+  setHref("#act-map", mapHref);
+  setHref("#c-map", mapHref);
+  setHref("#c-email", "mailto:" + BUSINESS.email);
+  $("#act-call-v").textContent = BUSINESS.phoneDisplay;
+  $("#c-phone").textContent = BUSINESS.phoneDisplay;
+  $("#c-email").textContent = BUSINESS.email;
+  $("#val-licence").textContent = BUSINESS.drugLicence;
+  $("#val-gst").textContent = BUSINESS.gstin;
+  $("#foot-licence").textContent = BUSINESS.drugLicence;
+  $("#foot-gst").textContent = BUSINESS.gstin;
+  $("#fact-skus").textContent = MEDICINES.length;
+  $("#foot-copy").textContent = "© " + new Date().getFullYear() + " Ajay Pharma, Kanpur";
+
+  /* open / closed — Mon-Sat 9:30-20:00 IST, computed in IST regardless of viewer TZ */
+  (function () {
+    var nowIst = new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000);
+    var day = nowIst.getDay();
+    var mins = nowIst.getHours() * 60 + nowIst.getMinutes();
+    var open = day !== 0 && mins >= 570 && mins < 1200;
+    var el = $("#open-status");
+    el.innerHTML = '<span class="dot' + (open ? "" : " dot--off") + '"></span><span data-t="' +
+      (open ? "openNow" : "closedNow") + '"></span>';
+  })();
+
+  /* ---------- rendering ---------- */
+  function buildChips() {
+    var co = $("#co-chips");
+    var cat = $("#cat-chips");
+    co.innerHTML = "";
+    cat.innerHTML = "";
+
+    var allCo = document.createElement("button");
+    allCo.type = "button"; allCo.className = "chip"; allCo.dataset.co = "";
+    allCo.textContent = t("allCos");
+    co.appendChild(allCo);
+    companies.forEach(function (c) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "chip"; b.dataset.co = c; b.textContent = c;
+      co.appendChild(b);
+    });
+
+    var allCat = document.createElement("button");
+    allCat.type = "button"; allCat.className = "chip"; allCat.dataset.cat = "";
+    allCat.textContent = t("allCats");
+    cat.appendChild(allCat);
+    CATEGORIES.forEach(function (c) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "chip"; b.dataset.cat = c.id; b.textContent = c[lang] || c.en;
+      cat.appendChild(b);
+    });
+    syncChips();
+  }
+
+  function syncChips() {
+    Array.prototype.forEach.call(document.querySelectorAll("#co-chips .chip"), function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.co === filters.co));
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("#cat-chips .chip"), function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.cat === filters.cat));
+    });
+  }
+
+  function matches(m) {
+    if (filters.co && m.company !== filters.co) return false;
+    if (filters.cat && m.category !== filters.cat) return false;
+    if (!filters.q) return true;
+    var hay = (m.name + " " + m.nameHi + " " + m.composition + " " + m.compositionHi + " " +
+               m.company + " " + m.form).toLowerCase();
+    return filters.q.split(/\s+/).every(function (w) { return hay.indexOf(w) > -1; });
+  }
+
+  function medName(m) { return lang === "hi" ? m.nameHi : m.name; }
+  function medSalt(m) { return lang === "hi" ? m.compositionHi : m.composition; }
+
+  function renderList() {
+    var rows = $("#rows");
+    var hits = MEDICINES.filter(matches);
+    rows.innerHTML = "";
+
+    $("#count").textContent = t("showing")
+      .replace("{n}", hits.length).replace("{t}", MEDICINES.length);
+
+    if (!hits.length) {
+      var li = document.createElement("li");
+      li.className = "empty";
+      var b = document.createElement("b"); b.textContent = t("emptyT");
+      var p = document.createElement("p"); p.textContent = t("emptyP");
+      p.style.maxWidth = "42ch"; p.style.margin = "0 auto";
+      li.appendChild(b); li.appendChild(p);
+      rows.appendChild(li);
+      return;
+    }
+
+    var frag = document.createDocumentFragment();
+    hits.forEach(function (m) {
+      var li = document.createElement("li");
+      li.className = "row";
+
+      /* medicine + composition */
+      var c1 = document.createElement("div");
+      var nm = document.createElement("div");
+      nm.className = "med__name";
+      nm.appendChild(document.createTextNode(medName(m)));
+      var badges = document.createElement("span");
+      badges.className = "badges";
+      var sch = document.createElement("span");
+      sch.className = "tag " + (m.schedule === "OTC" ? "tag--otc" : "tag--rx");
+      sch.textContent = m.schedule === "OTC" ? "OTC" : "Rx · " + m.schedule;
+      badges.appendChild(sch);
+      if (m.stock === "order") {
+        var st = document.createElement("span");
+        st.className = "tag tag--order"; st.textContent = t("onOrder");
+        badges.appendChild(st);
+      }
+      nm.appendChild(badges);
+      c1.appendChild(nm);
+
+      if (lang === "hi") {
+        var alt = document.createElement("div");
+        alt.className = "med__hi"; alt.textContent = m.name;
+        c1.appendChild(alt);
+      }
+      var salt = document.createElement("div");
+      salt.className = "med__salt"; salt.textContent = medSalt(m);
+      c1.appendChild(salt);
+
+      /* company */
+      var c2 = document.createElement("div");
+      c2.className = "co";
+      c2.appendChild(lbl(t("thCo")));
+      c2.appendChild(document.createTextNode(m.company));
+
+      /* pack */
+      var c3 = document.createElement("div");
+      c3.className = "pack";
+      c3.appendChild(lbl(t("thPack")));
+      c3.appendChild(document.createTextNode(m.pack));
+
+      /* mrp */
+      var c4 = document.createElement("div");
+      c4.className = "mrp";
+      c4.appendChild(lbl(t("thMrp")));
+      c4.appendChild(document.createTextNode(money(m.mrp)));
+
+      /* add / stepper */
+      var c5 = document.createElement("div");
+      c5.className = "addwrap";
+      c5.appendChild(stepper(m));
+
+      li.appendChild(c1); li.appendChild(c2); li.appendChild(c3); li.appendChild(c4); li.appendChild(c5);
+      frag.appendChild(li);
+    });
+    rows.appendChild(frag);
+  }
+
+  function lbl(text) {
+    var s = document.createElement("span");
+    s.className = "cell-lbl"; s.textContent = text;
+    return s;
+  }
+
+  function stepper(m) {
+    var qty = cart[m.id] || 0;
+    if (!qty) {
+      var add = document.createElement("button");
+      add.type = "button"; add.className = "add"; add.textContent = "+ " + t("add");
+      add.setAttribute("aria-label", t("add") + " " + m.name);
+      add.addEventListener("click", function () { setQty(m.id, 1); });
+      return add;
+    }
+    var wrap = document.createElement("div");
+    wrap.className = "step";
+    var minus = document.createElement("button");
+    minus.type = "button"; minus.textContent = "−";
+    minus.setAttribute("aria-label", "Decrease " + m.name);
+    minus.addEventListener("click", function () { setQty(m.id, qty - 1); });
+    var val = document.createElement("span");
+    val.textContent = qty;
+    var plus = document.createElement("button");
+    plus.type = "button"; plus.textContent = "+";
+    plus.setAttribute("aria-label", "Increase " + m.name);
+    plus.addEventListener("click", function () { setQty(m.id, qty + 1); });
+    wrap.appendChild(minus); wrap.appendChild(val); wrap.appendChild(plus);
+    return wrap;
+  }
+
+  function setQty(id, q) {
+    if (q <= 0) { delete cart[id]; } else { cart[id] = Math.min(q, 999); }
+    store.set("ap_cart", JSON.stringify(cart));
+    renderList();
+    renderCart();
+  }
+
+  function cartItems() {
+    return Object.keys(cart).map(function (id) {
+      var m = null;
+      for (var i = 0; i < MEDICINES.length; i++) { if (MEDICINES[i].id === id) { m = MEDICINES[i]; break; } }
+      return m ? { med: m, qty: cart[id] } : null;
+    }).filter(Boolean);
+  }
+
+  function renderCart() {
+    var items = cartItems();
+    var n = items.reduce(function (s, i) { return s + i.qty; }, 0);
+    var bar = $("#enqbar");
+    bar.hidden = items.length === 0;
+    $("#padbottom").className = "padbottom" + (items.length ? " on" : "");
+    $("#enqbar-n").textContent = (n === 1 ? t("itemsN") : t("itemsNp")).replace("{n}", n);
+
+    var list = $("#sheet-items");
+    list.innerHTML = "";
+    if (!items.length) {
+      var p = document.createElement("p");
+      p.style.color = "var(--muted)"; p.style.fontSize = "14px";
+      p.textContent = t("emptyCart");
+      list.appendChild(p);
+    }
+    items.forEach(function (it) {
+      var li = document.createElement("li");
+      li.className = "sitem";
+      var txt = document.createElement("div");
+      txt.className = "sitem__t";
+      var b = document.createElement("b"); b.textContent = medName(it.med);
+      var s = document.createElement("span");
+      s.textContent = it.med.company + " · " + it.med.pack + " · " + money(it.med.mrp);
+      txt.appendChild(b); txt.appendChild(s);
+      li.appendChild(txt);
+      li.appendChild(stepper(it.med));
+      list.appendChild(li);
+    });
+
+    $("#sheet-send").setAttribute("href", waLink(items));
+  }
+
+  function waLink(items) {
+    var shop = ($("#buyer-shop") && $("#buyer-shop").value || "").trim();
+    var phone = ($("#buyer-phone") && $("#buyer-phone").value || "").trim();
+    var lines = ["*" + t("waHead") + "*", ""];
+    if (shop) lines.push(t("waShop") + ": " + shop);
+    if (phone) lines.push(t("waPhone") + ": " + phone);
+    if (shop || phone) lines.push("");
+    items.forEach(function (it, i) {
+      lines.push((i + 1) + ". " + it.med.name + " (" + it.med.company + ") — " +
+                 it.med.pack + " × " + it.qty);
+    });
+    if (items.length) {
+      lines.push("");
+      lines.push(t("waTotal") + ": " + items.reduce(function (s, i) { return s + i.qty; }, 0));
+    }
+    return waBase + "?text=" + encodeURIComponent(lines.join("\n"));
+  }
+
+  function renderHours() {
+    var ul = $("#hours-list");
+    ul.innerHTML = "";
+    BUSINESS.hours.forEach(function (h) {
+      var li = document.createElement("li");
+      var b = document.createElement("b");
+      b.textContent = typeof h.days === "string" ? h.days : (h.days[lang] || h.days.en);
+      var s = document.createElement("span");
+      s.className = "num";
+      s.textContent = typeof h.time === "string" ? h.time : (h.time[lang] || h.time.en);
+      if (!h.open) s.style.color = "var(--muted)";
+      li.appendChild(b); li.appendChild(s);
+      ul.appendChild(li);
+    });
+    var areas = $("#areas-list");
+    areas.innerHTML = "";
+    (BUSINESS.deliveryAreas[lang] || BUSINESS.deliveryAreas.en).forEach(function (a) {
+      var li = document.createElement("li"); li.textContent = a;
+      areas.appendChild(li);
+    });
+    $("#val-address").textContent = BUSINESS.address[lang] || BUSINESS.address.en;
+    $("#hero-eyebrow").textContent = lang === "hi"
+      ? "बिरहाना रोड · कानपुर · स्थापित " + BUSINESS.established
+      : "Birhana Road · Kanpur · Est. " + BUSINESS.established;
+  }
+
+  function applyLang() {
+    document.documentElement.lang = lang === "hi" ? "hi" : "en";
+    Array.prototype.forEach.call(document.querySelectorAll("[data-t]"), function (el) {
+      var v = STR[lang][el.dataset.t];
+      if (v !== undefined) el.textContent = v;
+    });
+    $("#q").placeholder = t("searchPh");
+    $("#lang-en").setAttribute("aria-pressed", String(lang === "en"));
+    $("#lang-hi").setAttribute("aria-pressed", String(lang === "hi"));
+    buildChips();
+    renderHours();
+    renderList();
+    renderCart();
+  }
+
+  /* ---------- events ---------- */
+  $("#lang-en").addEventListener("click", function () { setLang("en"); });
+  $("#lang-hi").addEventListener("click", function () { setLang("hi"); });
+  function setLang(l) { lang = l; store.set("ap_lang", l); applyLang(); }
+
+  var qTimer = null;
+  $("#q").addEventListener("input", function (e) {
+    var v = e.target.value;
+    $("#q-clear").hidden = !v;
+    clearTimeout(qTimer);
+    qTimer = setTimeout(function () {
+      filters.q = v.trim().toLowerCase();
+      renderList();
+    }, 120);
+  });
+  $("#q-clear").addEventListener("click", function () {
+    $("#q").value = ""; $("#q-clear").hidden = true;
+    filters.q = ""; renderList(); $("#q").focus();
+  });
+
+  $("#co-chips").addEventListener("click", function (e) {
+    var b = e.target.closest(".chip"); if (!b) return;
+    filters.co = b.dataset.co === filters.co ? "" : b.dataset.co;
+    syncChips(); renderList();
+  });
+  $("#cat-chips").addEventListener("click", function (e) {
+    var b = e.target.closest(".chip"); if (!b) return;
+    filters.cat = b.dataset.cat === filters.cat ? "" : b.dataset.cat;
+    syncChips(); renderList();
+  });
+
+  var sheet = $("#sheet");
+  $("#enqbar-open").addEventListener("click", function () {
+    renderCart();
+    if (typeof sheet.showModal === "function") { sheet.showModal(); } else { sheet.setAttribute("open", ""); }
+  });
+  $("#sheet-close").addEventListener("click", function () { sheet.close ? sheet.close() : sheet.removeAttribute("open"); });
+  sheet.addEventListener("click", function (e) { if (e.target === sheet) sheet.close(); });
+  $("#enqbar-clear").addEventListener("click", function () {
+    cart = {}; store.set("ap_cart", "{}"); renderList(); renderCart();
+  });
+  ["#buyer-shop", "#buyer-phone"].forEach(function (sel) {
+    $(sel).addEventListener("input", function () { $("#sheet-send").setAttribute("href", waLink(cartItems())); });
+  });
+
+  /* hero + top WhatsApp buttons carry an empty-but-addressed message */
+  var plainWa = waBase + "?text=" + encodeURIComponent(STR.en.waHead);
+  setHref("#hero-wa", plainWa);
+  setHref("#act-wa", plainWa);
+  setHref("#c-wa", plainWa);
+
+  /* ---------- boot ---------- */
+  var savedLang = store.get("ap_lang");
+  if (savedLang === "hi" || savedLang === "en") lang = savedLang;
+  applyLang();
+})();
+</script>

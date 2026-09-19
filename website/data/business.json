@@ -1,0 +1,29 @@
+{
+  "name": { "en": "Ajay Pharma", "hi": "अजय फार्मा" },
+  "tagline": {
+    "en": "Wholesale medicine distributor",
+    "hi": "थोक दवा वितरक"
+  },
+  "established": "1998",
+  "address": {
+    "en": "59/105, Canal Road, Birhana Road, Kanpur - 208001, Uttar Pradesh",
+    "hi": "59/105, कैनाल रोड, बिरहाना रोड, कानपुर - 208001, उत्तर प्रदेश"
+  },
+  "city": { "en": "Kanpur", "hi": "कानपुर" },
+  "mapsQuery": "Ajay Pharma, 59/105 Canal Road, Birhana Road, Kanpur 208001",
+  "_NOTE_REPLACE_THESE": "The phone, WhatsApp, email, licence and GST values below are PLACEHOLDERS. Replace them with Ajay Pharma's real details before sharing the site publicly.",
+  "phoneDisplay": "+91 00000 00000",
+  "phoneDial": "+910000000000",
+  "whatsapp": "910000000000",
+  "email": "orders@ajaypharma.example",
+  "drugLicence": "UP/KNP/20B-00000, 21B-00000",
+  "gstin": "09XXXXXXXXXXXZX",
+  "hours": [
+    { "days": { "en": "Monday - Saturday", "hi": "सोमवार - शनिवार" }, "time": "9:30 AM - 8:00 PM", "open": true },
+    { "days": { "en": "Sunday", "hi": "रविवार" }, "time": { "en": "Closed", "hi": "बंद" }, "open": false }
+  ],
+  "deliveryAreas": {
+    "en": ["Kanpur Nagar", "Kanpur Dehat", "Unnao", "Fatehpur", "Kannauj", "Lucknow"],
+    "hi": ["कानपुर नगर", "कानपुर देहात", "उन्नाव", "फतेहपुर", "कन्नौज", "लखनऊ"]
+  }
+}
